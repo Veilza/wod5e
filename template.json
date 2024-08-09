@@ -9,7 +9,10 @@
         "appearance": "",
         "equipment": "",
         "notes": "",
-        "headers":{
+        "settings": {
+          "headerbg": ""
+        },
+        "headers": {
           "concept":"",
           "chronicle":"",
           "ambition":"",
@@ -22,7 +25,7 @@
           "max": 0
         },
         "humanity": {
-          "value": 0,
+          "value": 7,
           "stains": 0
         },
         "despair": {
@@ -421,73 +424,84 @@
           "arsenal": {
             "description": "",
             "value": 0,
-            "powers": [],
+            "perks": [],
+            "pools": [],
             "visible": false
           },
           "fleet": {
             "description": "",
             "value": 0,
-            "powers": [],
+            "perks": [],
+            "pools": [],
             "visible": false
           },
           "ordnance": {
             "description": "",
             "value": 0,
-            "powers": [],
+            "perks": [],
+            "pools": [],
             "visible": false
           },
           "library": {
             "description": "",
             "value": 0,
-            "powers": [],
+            "perks": [],
+            "pools": [],
             "visible": false
           },
           "improvisedgear": {
             "description": "",
             "value": 0,
-            "powers": [],
+            "perks": [],
             "visible": false
           },
           "globalaccess": {
             "description": "",
             "value": 0,
-            "powers": [],
+            "perks": [],
+            "pools": [],
             "visible": false
           },
           "dronejockey": {
             "description": "",
             "value": 0,
-            "powers": [],
+            "perks": [],
+            "pools": [],
             "visible": false
           },
           "beastwhisperer": {
             "description": "",
             "value": 0,
-            "powers": [],
+            "perks": [],
+            "pools": [],
             "visible": false
           },
           "sensetheunnatural": {
             "description": "",
             "value": 0,
-            "powers": [],
+            "perks": [],
+            "pools": [],
             "visible": false
           },
           "repeltheunnatural": {
             "description": "",
             "value": 0,
-            "powers": [],
+            "perks": [],
+            "pools": [],
             "visible": false
           },
           "thwarttheunnatural": {
             "description": "",
             "value": 0,
-            "powers": [],
+            "perks": [],
+            "pools": [],
             "visible": false
           },
           "artifact": {
             "description": "",
             "value": 0,
-            "powers": [],
+            "perks": [],
+            "pools": [],
             "visible": false
           }
         }
@@ -715,82 +729,89 @@
             "powers": []
           }
         }
+      },
+      "vampire_traits": {
+        "headers":{
+          "predator":"",
+          "sire":"",
+          "generation":"",
+          "bane":""
+        },
+        "blood": {
+          "potency": 0,
+          "resonance": ""
+        },
+        "clan": {
+          "value": ""
+        },
+        "hunger": {
+          "value": 1,
+          "max": 5
+        }
+      },
+      "ghoul_traits": {
+        "headers":{
+          "domitor":"",
+          "creedfields":""
+        }
+      },
+      "werewolf_traits": {
+        "headers": {
+          "auspice": "",
+          "patron": "",
+          "favor": "",
+          "ban": "",
+          "tribe": ""
+        },
+        "balance": {
+          "hauglosk": {
+            "value": 0
+          },
+          "harano": {
+            "value": 0
+          }
+        },
+        "rites": [],
+        "talismans": [],
+        "rage": {
+          "value": 1,
+          "max": 5
+        },
+        "frenzyActive": false,
+        "crinosHealth": {
+          "aggravated": 0,
+          "superficial": 0,
+          "max": 4
+        },
+        "lostTheWolf": false
+      },
+      "hunter_traits": {
+        "headers":{
+          "cellname": "",
+          "creed": "",
+          "drive": ""
+        }
       }
     },
-   
     "mortal": {
       "templates": ["base"],
       "gamesystem": "mortal"
     },
     "vampire": {
-      "templates": ["base", "disciplines"],
-      "gamesystem": "vampire",
-      "headers":{
-        "predator":"",
-        "sire":"",
-        "generation":"",
-        "bane":""
-      },
-      "blood": {
-        "potency": 0,
-        "resonance": ""
-      },
-      "clan": {
-        "value": ""
-      },
-      "hunger": {
-        "value": 1,
-        "max": 5
-      }
+      "templates": ["base", "vampire_traits", "disciplines"],
+      "gamesystem": "vampire"
     },
     "werewolf": {
-      "templates": ["base", "renown", "werewolfForms", "gifts"],
-      "gamesystem": "werewolf",
-      "headers": {
-        "auspice": "",
-        "patron": "",
-        "favor": "",
-        "ban": "",
-        "tribe": ""
-      },
-      "balance": {
-        "hauglosk": {
-          "value": 0
-        },
-        "harano": {
-          "value": 0
-        }
-      },
-      "rites": [],
-      "talismans": [],
-      "rage": {
-        "value": 1,
-        "max": 5
-      },
-      "frenzyActive": false,
-      "crinosHealth": {
-        "aggravated": 0,
-        "superficial": 0,
-        "max": 4
-      },
-      "lostTheWolf": false
+      "templates": ["base", "werewolf_traits", "renown", "werewolfForms", "gifts"],
+      "gamesystem": "werewolf"
     },
     "hunter": {
-      "templates": ["base", "edges"],
-      "gamesystem": "hunter",
-      "headers":{
-        "cellname": "",
-        "creed": "",
-        "drive": ""
-      }
+      "templates": ["base", "hunter_traits", "edges"],
+      "gamesystem": "hunter"
     },
     "ghoul": {
-      "templates": ["base", "disciplines"],
-      "gamesystem": "vampire",
-      "headers":{
-        "domitor":"",
-        "creedfields":""
-      }
+      "templates": ["base", "vampire_traits", "ghoul_traits", "disciplines"],
+      "gamesystem": "vampire"
     },
     "group": {
       "groupType": "coterie",
@@ -819,13 +840,13 @@
       "collapsed": true
     },
     "spc": {
-      "templates": ["abbreviated", "disciplines", "gifts", "edges"],
+      "templates": ["abbreviated", "vampire_traits", "ghoul_traits", "disciplines", "werewolf_traits", "gifts", "hunter_traits", "edges"],
       "spcType": "mortal",
       "gamesystem": "mortal"
     }
   },
   "Item": {
-    "types": ["feature", "power", "boon", "customRoll", "perk", "gift"],
+    "types": ["feature", "power", "boon", "customRoll", "perk", "edgepool", "gift"],
     "templates": {
       "base": {
         "description": "",
@@ -848,7 +869,8 @@
       "rollable": false,
       "skill": false,
       "amalgam": false,
-      "rouse": false
+      "rouse": false,
+      "gamesystem": "vampire"
     },
     "boon": {
       "templates": ["base"],
@@ -869,7 +891,15 @@
       "cost": "",
       "rollable": false,
       "skill": false,
-      "amalgam": false
+      "amalgam": false,
+      "gamesystem": "hunter"
+    },
+    "edgepool": {
+      "templates": ["base"],
+      "edge": "arsenal",
+      "source": "self",
+      "dicepool": {},
+      "gamesystem": "hunter"
     },
     "gift": {
       "templates": ["base"],
@@ -883,7 +913,8 @@
       "action": "",
       "dice1": "strength",
       "dice2": "strength",
-      "duration": ""
+      "duration": "",
+      "gamesystem": "werewolf"
     }
   }
 }

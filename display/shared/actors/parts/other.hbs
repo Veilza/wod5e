@@ -4,17 +4,17 @@
             <div class="flex-center">
                 <label class="resource-label">{{localize "WOD5E.Tabs.Notes"}}</label>
             </div>
-            <div class="description-content">
-                {{editor enrichedNotes target="system.notes" button=true editable=editable}}
-            </div>
+            <prose-mirror name="system.notes" data-document-u-u-i-d="{{../actor.uuid}}" value="{{actor.system.notes}}" toggled="true">
+                {{{enrichedNotes}}}
+            </prose-mirror>
         </div>
         <div class="flex-group-left">
             <div class="flex-center">
                 <label class="resource-label">{{localize "WOD5E.Tabs.Equipment"}}</label>
             </div>
-            <div class="description-content">
-                {{editor enrichedEquipment target="system.equipment" button=true editable=editable}}
-            </div>
+            <prose-mirror name="system.equipment" data-document-u-u-i-d="{{../actor.uuid}}" value="{{actor.system.equipment}}" toggled="true">
+                {{{enrichedEquipment}}}
+            </prose-mirror>
         </div>
     </div>
 </div>

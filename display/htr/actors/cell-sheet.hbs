@@ -1,19 +1,11 @@
-<form class="{{cssClass}} flexcol {{#if locked}}locked{{/if}} cell-sheet" autocomplete="off">
+<form class="{{cssClass}} flexcol {{#if locked}}locked{{/if}}" autocomplete="off">
   {{!-- Cell Sheet Header --}}
-  <header class="actor-header">
+  <header class="actor-header" {{#if actor.system.settings.headerbg}}style="background: url({{actor.system.settings.headerbg}}) center;"{{/if}}>
     <div class="header-fields-top">
-      <div class="header-profile-img">
-        {{!-- Actor image and sheet lock toggle button --}}
-        {{> "systems/vtm5e/display/shared/actors/parts/profile-img.hbs"}}
-      </div>
+      <!-- Middle of the header -->
+      {{> "systems/vtm5e/display/shared/actors/parts/header-profile.hbs"}}
       <div class="header-rows-top">
         <div class="header-row-1">
-          {{!-- Text input header fields --}}
-          <h1 class="charname">
-            <input class="no-border" name="name" type="text" value="{{actor.name}}"
-              placeholder="{{localize 'WOD5E.Name'}}" />
-          </h1>
-            
           {{> "systems/vtm5e/display/shared/actors/parts/group/type-selector.hbs"}}
         </div>
         <div class="header-row-2">
@@ -46,6 +38,9 @@
 
     {{!-- Other Tab --}}
     {{> "systems/vtm5e/display/shared/actors/parts/other.hbs"}}
+
+    {{!-- Settings Tab --}}
+    {{> "systems/vtm5e/display/shared/actors/parts/actor-settings.hbs"}}
   </section>
 </form>
 

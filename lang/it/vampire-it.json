@@ -14,7 +14,7 @@
       "VampireDice": "Dadi vampiro",
       "HungerDice": "Dadi fame",
       "Humanity": "Umanità",
-      "Predator": "Predatore",
+      "PredatorType": "Predatore",
       "Hunger": "Fame",
       "HungerFull1": "Fame massima",
       "HungerFull2": "Già a Fame massima, non può aumentarlo più lontano.",

@@ -3,7 +3,7 @@
     {{#unless (or skill attribute)}}
       <!-- Unless a skill/attribute is already selected, show skill selection -->
       <div class="primary-selector">
-        <div class="selector-sitle">
+        <div class="selector-title">
           {{localize "WOD5E.SkillsList.Label"}}
         </div>
         <div class="selector-content">
@@ -21,14 +21,14 @@
             {{localize "WOD5E.SkillsList.Label"}}
           </div>
           <div class="selector-content">
-            {{generateLocalizedLabel skill}}
+            {{generateLocalizedLabel skill 'skills'}}
           </div>
         {{else if attribute}}
           <div class="selector-title">
             {{localize "WOD5E.AttributesList.Label"}}
           </div>
           <div class="selector-content">
-            {{generateLocalizedLabel attribute}}
+            {{generateLocalizedLabel attribute 'abilities'}}
           </div>
         {{/if}}
       </div>
@@ -57,7 +57,7 @@
       <!-- If a discipline is already selected, display the selected discipline -->
       {{#if discipline}}
         <div class="secondary-selector">
-          <b>{{generateLocalizedLabel discipline}}</b>
+          <b>{{generateLocalizedLabel discipline 'disciplines'}}</b>
         </div>
       {{else}}
         <div class="secondary-selector">
@@ -89,7 +89,7 @@
     <!-- If renown is already selected, display the selected renown -->
     {{#if renown}}
       <div class="secondary-selector">
-        <b>{{generateLocalizedLabel renown}}</b>
+        <b>{{generateLocalizedLabel renown 'renown'}}</b>
       </div>
     {{else}}
       <div class="secondary-selector">

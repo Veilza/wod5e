@@ -28,7 +28,9 @@
     <section class="sheet-body">
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor enrichedDescription target="system.description" button=true editable=editable}}
+            <prose-mirror name="system.description" data-document-u-u-i-d="{{../actor.uuid}}" value="{{item.system.description}}" toggled="true">
+                {{{enrichedDescription}}}
+            </prose-mirror>
         </div>
 
         {{!-- Macro Tab --}}

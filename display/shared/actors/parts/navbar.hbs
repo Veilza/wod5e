@@ -1,0 +1,68 @@
+<div class="tabs-container">
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <div class="item" data-tab="stats" title="{{localize "WOD5E.Tabs.Stats"}}">
+            <div class="navicon">
+                <i class="fa-regular fa-chart-line"></i>
+            </div>
+        </div>
+        <!-- Splat-specific tabs -->
+        {{#ifeq actor.type 'vampire'}}
+          <div class="item" data-tab="disciplines" title="{{localize "WOD5E.VTM.Disciplines"}}">
+              <div class="navicon">
+                  <span class="wod5e-symbol">b</span>
+              </div>
+          </div>
+          <div class="item" data-tab="blood" title="{{localize "WOD5E.VTM.Blood"}}">
+              <div class="wod5e-symbol navicon">
+                  <i class="fa-solid fa-droplet"></i>
+              </div>
+          </div>
+        {{/ifeq}}
+        {{#ifeq actor.type 'ghoul'}}
+          <div class="item" data-tab="disciplines" title="{{localize "WOD5E.VTM.Disciplines"}}">
+              <div class="navicon">
+                  <span class="wod5e-symbol">b</span>
+              </div>
+          </div>
+        {{/ifeq}}
+        {{#ifeq actor.type 'werewolf'}}
+          <div class="item" data-tab="gifts-rites" title="{{localize "WOD5E.WTA.GiftsandRites"}}">
+              <div class="navicon">
+                  <span class="wod5e-symbol">h</span>
+              </div>
+          </div>
+          <div class="item" data-tab="wolf" title="{{localize "WOD5E.WTA.TheWolf"}}">
+              <div class="wod5e-symbol navicon">
+                 <i class="fa-brands fa-wolf-pack-battalion"></i>
+              </div>
+          </div>
+        {{/ifeq}}
+        {{#ifeq actor.type 'hunter'}}
+          <div class="item" data-tab="edges" title="{{localize "WOD5E.HTR.Edges"}}">
+              <div class="navicon">
+                  <span class="wod5e-symbol hunter">e</span>
+              </div>
+          </div>
+        {{/ifeq}}
+        <div class="item" data-tab="features" title="{{localize "WOD5E.Tabs.Features"}}">
+            <div class="navicon">
+                <i class="fas fa-gem"></i>
+            </div>
+        </div>
+        <div class="item" data-tab="description" title="{{localize "WOD5E.Tabs.Description"}}">
+            <div class="navicon">
+                <i class="fas fa-id-card"></i>
+            </div>
+        </div>
+        <div class="item" data-tab="other" title="{{localize "WOD5E.Tabs.Other"}}">
+            <div class="navicon">
+                <i class="fas fa-sticky-note"></i>
+            </div>
+        </div>
+        <div class="item" data-tab="settings" title="{{localize "WOD5E.Tabs.Settings"}}">
+            <div class="navicon">
+                <i class="fa-solid fa-gears"></i>
+            </div>
+        </div>
+    </nav>
+</div>

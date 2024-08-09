@@ -16,7 +16,7 @@
       "_VampireDice": "",
       "_HungerDice": "",
       "Humanity": "Człowieczeństwo",
-      "Predator": "Drapieżnik",
+      "PredatorType": "Drapieżnik",
       "Hunger": "Głód",
       "_HungerFull1": "",
       "HungerFull2": "Głód jest na poziomie maksymalnym, nie można go dalej zwiększyć.",

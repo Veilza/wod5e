@@ -1,0 +1,51 @@
+/* Variables */
+:root {
+  --ui-background-hunter-texture: url("/systems/vtm5e/assets/ui/ui_background_hunter_texture.webp");
+}
+
+.hunter-theme {
+  /* Logo */
+  #logo {
+    content: url(/systems/vtm5e/assets/ui/HtR_Logo.png);
+  }
+
+  /* Sheet window Header */
+  .sheet .window-header {
+    background-color: var(--hunter-primary);
+  }
+
+  /* Sidebar */
+  #sidebar {
+    background: url(/systems/vtm5e/assets/ui/sidebar_hunter.webp) repeat;
+  }
+
+  /* Foundry Controls UI */
+  #controls ol.control-tools > li {
+    background: var(--ui-background-hunter-texture);
+  }
+
+  #navigation #scene-list .scene,
+  #navigation #scene-list .scene.view,
+  #navigation #scene-list .scene.context,
+  #navigation #scene-list .scene.gm,
+  #navigation .nav-item,
+  #navigation #nav-toggle {
+    background: var(--ui-background-hunter-texture);
+  }
+
+  #navigation #scene-list .scene.active {
+    background: var(--ui-background-active-texture);
+  }
+
+  #hotbar .macro {
+    background: rgba(255, 136, 0, 0.5);
+  }
+
+  #hotbar .bar-controls {
+    background: var(--ui-background-hunter-texture);
+  }
+
+  .app {
+    background: var(--ui-background-hunter-texture);
+  }
+}

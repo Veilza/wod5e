@@ -15,6 +15,7 @@
             "feature": "Feature",
             "gift": "Gift",
             "perk": "Perk",
+            "edgepool": "Edge Pool",
             "power": "Discipline"
         }
     },
@@ -37,8 +38,10 @@
         "None": "None",
         "Value": "Value",
         "Label": "Label",
+        "ConfirmDelete": "Confirm Delete",
+        "ConfirmDeleteDescription": "Are you sure you want to delete <b>{string}</b>? This cannot be undone.",
 
-        "New": "New {string}",
+        "NewString": "New {string}",
 
         "Mortal": "Mortal",
         "GroupSheet": "Group Sheet",
@@ -46,6 +49,11 @@
         "OpenSheet": "Open sheet",
         "RemoveFromGroup": "Remove from group",
         "NoGroupMembers": "No group members added. Drag and drop from the actors sidebar to add some!",
+
+        "Changelog": "Changelog",
+        "Wiki": "Wiki",
+        "LicensedUnderDarkPack": "Licensed Under The Dark Pack",
+        "LicensedUnderDarkPackFulltext": "Portions of the materials are the copyrights and trademarks of Paradox Interactive AB, and are used with permission. All rights reserved. For more information please visit <a href='https://worldofdarkness.com'>worldofdarkness.com</a>.",
 
         "RollList": {
             "Label": "Roll",
@@ -110,7 +118,8 @@
             "Description": "Description",
             "Equipment": "Equipment",
             "Notes": "Notes",
-            "Other": "Other"
+            "Other": "Other",
+            "Dicepool": "Dicepool"
         },
 
         "AttributesList": {
@@ -241,8 +250,17 @@
             "WorldVersion": "World Version",
             "WorldVersionHint": "Automatically upgrades data when the system.json is upgraded.",
 
-            "DarkTheme": "Dark Theme",
-            "DarkThemeHint": "Display sheets using a darker theme on a per-user basis.",
+            "ColorScheme": "Color Scheme",
+            "ColorSchemeHint": "Determines the color scheme that the system will use.",
+            "ColorSchemeDark": "Dark Theme",
+            "ColorSchemeLight": "Light Theme",
+            "ColorSchemeDefault": "Browser Default",
+            "ColorSchemeVampire": "Vampire Theme",
+            "ColorSchemeHunter": "Hunter Theme",
+            "ColorSchemeWerewolf": "Werewolf Theme",
+
+            "DisableVampireFont": "Disable Vampire Revised Font",
+            "DisableVampireFontHint": "Disables the Vampire Revised font, which can be hard to read for some people. This is mainly used in headers.",
 
             "ActorBanner": "Enable Character Type Banner",
             "ActorBannerHint": "Display a banner at the top of actor sheets to represent the character type.",

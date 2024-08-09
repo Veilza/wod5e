@@ -14,7 +14,7 @@
             {{#if discipline.visible}}
                 <li class="flexrow spc-item-header">
                     <label for="{{discipline.name}}" class="resource-label rollable" data-use-absolute-value="true"
-                      data-absolute-value="{{discipline.value}}" data-label="{{generateLocalizedLabel key}}">{{generateLocalizedLabel key}}
+                      data-absolute-value="{{discipline.value}}" data-label="{{generateLocalizedLabel key 'disciplines'}}">{{generateLocalizedLabel key 'disciplines'}}
                     </label>
                     <div class="resource-value">
                         <input type="number" name="system.disciplines.{{key}}.value" 

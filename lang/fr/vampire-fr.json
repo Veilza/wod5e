@@ -19,7 +19,7 @@
       "VampireDice": "Dé de Vampire",
       "HungerDice": "Dé de Soif",
       "Humanity": "Humanité",
-      "Predator": "Prédation",
+      "PredatorType": "Prédation",
       "Hunger": "Soif",
       "HungerFull1": "Soif au max",
       "HungerFull2": "Déjà à la soif maximale, impossible de l'endommager davantage.",

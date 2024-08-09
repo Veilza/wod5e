@@ -1,53 +1,78 @@
-<form class="{{cssClass}} flexcol {{#if locked}}locked{{/if}} spc-sheet" autocomplete="off">
-  {{#if displayBanner}}
-    <div class="sheet-banner">
-      <h1>{{localize "WOD5E.SPC.Label"}}</h1>
-    </div>
-  {{/if}}
-
-  {{!-- SPC Sheet Header --}}
-  <header class="actor-header">
-      <div class="header-fields-top">
-        <div class="header-profile-img">
-            {{!-- Actor image and sheet lock toggle button --}}
-            {{> "systems/vtm5e/display/shared/actors/parts/profile-img.hbs"}}
-        </div>
-        <div class="header-rows-top">
-            <div class="header-row-1 grid-3col">
-                {{!-- Text input header fields --}}
-                <h1 class="charname"><input class="no-border" name="name" type="text" value="{{actor.name}}"
-                  placeholder="{{localize 'WOD5E.Name'}}" /></h1>
-                {{> "systems/vtm5e/display/shared/actors/parts/spc/type-selector.hbs"}}
-            </div>
-            <div class="spc-header-row-2 grid-2col">
+<form class="{{cssClass}} flexcol {{#if locked}}locked{{/if}}" autocomplete="off">
+    {{!-- SPC Sheet Header --}}
+    <header class="actor-header" {{#if actor.system.settings.headerbg}}style="background: url({{actor.system.settings.headerbg}}) center;"{{/if}}>
+        <div class="header-fields">
+            <div class="header-fields-left">
+                {{!-- Health Tracker --}}
                 {{> "systems/vtm5e/display/shared/actors/parts/health.hbs"}}
+                {{!-- Willpower Tracker --}}
                 {{> "systems/vtm5e/display/shared/actors/parts/willpower.hbs"}}
-                {{> "systems/vtm5e/display/shared/actors/parts/spc/generaldifficulty.hbs"}}
             </div>
         </div>
-    </div>
-  </header>
+        <!-- Middle of the header -->
+        {{> "systems/vtm5e/display/shared/actors/parts/header-profile.hbs"}}
+        <div class="header-fields">
+            <div class="header-fields-right">
+                <div class="flexcol">
+                    {{#ifeq actor.system.gamesystem 'vampire'}}
+                        <div class="field-section">
+                            <div class="flexcol">
+                                <label class="resource-label field-header">{{localize 'WOD5E.VTM.Humanity'}}</label>
+                                {{> "systems/vtm5e/display/vtm/actors/parts/humanity.hbs"}}
+                            </div>
+                        </div>
+                        <div class="field-section">
+                            <div class="flexcol">
+                                <label class="resource-label field-header">{{localize 'WOD5E.VTM.Hunger'}}</label>
+                                {{> "systems/vtm5e/display/vtm/actors/parts/hunger.hbs"}}
+                            </div>
+                        </div>
+                    {{/ifeq}}
 
-  {{!-- SPC Sheet Body --}}
-  <section class="sheet-body">
-      <div class="resource grid grid-2col flexrow">
-      {{> "systems/vtm5e/display/shared/actors/parts/spc/standard-dice-pools.hbs"}}
-      
-      {{> "systems/vtm5e/display/shared/actors/parts/spc/exceptional-dice-pools.hbs"}}
-      
-      {{> "systems/vtm5e/display/shared/actors/parts/notes.hbs"}}
+                    {{#ifeq actor.system.gamesystem 'werewolf'}}
+                        <div class="field-section">
+                            {{> "systems/vtm5e/display/wta/actors/parts/balance.hbs"}}
+                        </div>
+                        <div class="field-section">
+                            <div class="flexcol">
+                                <label class="resource-label field-header">{{localize 'WOD5E.WTA.Rage'}}</label>
+                                {{> "systems/vtm5e/display/wta/actors/parts/rage-value.hbs"}}
+                            </div>
+                        </div>
+                    {{/ifeq}}
+                </div>
+            </div>
+        </div>
+    </header>
 
-      {{#ifeq actor.system.gamesystem 'vampire'}}
-        {{> "systems/vtm5e/display/shared/actors/parts/spc/spc-disciplines.hbs"}}
-      {{/ifeq}}
+    {{!-- Tab Navigation --}}
+    {{> "systems/vtm5e/display/shared/actors/parts/navbar.hbs"}}
 
-      {{#ifeq actor.system.gamesystem 'werewolf'}}
-        {{> "systems/vtm5e/display/shared/actors/parts/spc/spc-gifts.hbs"}}
-      {{/ifeq}}
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        {{!-- Stats Tab --}}
+        {{> "systems/vtm5e/display/shared/actors/parts/spc/stats.hbs"}}
 
-      {{#ifeq actor.system.gamesystem 'hunter'}}
-        {{> "systems/vtm5e/display/shared/actors/parts/spc/spc-edges.hbs"}}
-      {{/ifeq}}
-      </div>
-  </section>
+        {{!-- Owned Features Tab --}}
+        {{> "systems/vtm5e/display/shared/actors/parts/features.hbs"}}
+
+        {{!-- Biography Tab --}}
+        {{> "systems/vtm5e/display/shared/actors/parts/biography.hbs"}}
+
+        {{!-- Other Tab --}}
+        {{> "systems/vtm5e/display/shared/actors/parts/other.hbs"}}
+
+        {{!-- Settings Tab --}}
+        {{> "systems/vtm5e/display/shared/actors/parts/actor-settings.hbs"}}
+    </section>
+
+    {{!-- Actor Type Banner --}}
+    {{#if displayBanner}}
+        <div class="sheet-banner flexrow">
+            <div class="sheet-label">
+                {{localize "WOD5E.SPC.Label"}}
+            </div>
+            {{> "systems/vtm5e/display/shared/actors/parts/spc/type-selector.hbs"}}
+        </div>
+    {{/if}}
 </form>

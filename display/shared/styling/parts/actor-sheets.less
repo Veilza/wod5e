@@ -1,0 +1,484 @@
+/* The actor sheet itself */
+.actor.sheet {
+  position: fixed;
+  overflow: hidden;
+  min-width: 850px;
+  min-height: 300px;
+  border-radius: 0;
+}
+
+.actor.sheet .window-content {
+  background: url(/systems/vtm5e/assets/actor/actor_background.webp) repeat;
+  padding: 0;
+  padding-bottom: 20px;
+  overflow-y: scroll;
+}
+
+.actor.sheet .window-content form {
+  margin-left: 45px;
+}
+
+/* Increase z-index of the window handle to compensate for the actor banner*/
+.window-app .window-resizable-handle {
+  z-index: 2;
+}
+
+/* Collapsible Descrptions */
+.actor.sheet .collapsible-content {
+  padding: 0 1em;
+}
+
+.actor.sheet .collapsible:hover,
+.actor.sheet .collapsible:focus {
+  cursor: pointer;
+}
+
+.actor.sheet .collapsible-content {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  font-family: Vollkorn, serif;
+  line-height: 1.6em;
+  word-spacing: 0.05em;
+  font-size: 1.1em;
+  color: hwb(0deg 7% 98% / 100%);
+  background: #eeece8;
+}
+
+.actor.sheet .discipline-description,
+.actor.sheet .edge-description,
+.actor.sheet .gift-description {
+  width: 100%;
+  resize: none;
+  font-family: Vollkorn, serif;
+  line-height: 1.6em;
+  word-spacing: 0.05em;
+  font-size: 1em;
+  border: 0;
+  height: auto;
+  font-weight: 500;
+  margin-bottom: -8px;
+}
+
+/* Sheet Banner */
+.actor.sheet .sheet-banner {
+  text-align: center;
+  margin: -10px -10px 5px;
+  background-color: var(--system-primary);
+  font-size: 14pt;
+  padding: 3px;
+  position: absolute;
+  bottom: -6px;
+  width: 100%;
+  left: 10px;
+  z-index: 1;
+  justify-content: center;
+}
+
+.vampire-font-headers .actor.sheet .sheet-banner {
+  font-family: "vampireRevised", "sans-serif";
+}
+
+.actor.sheet .sheet-banner .actor-type-field {
+  text-align: left;
+  padding-left: 5px;
+}
+
+.actor.sheet .sheet-banner .actor-type-field select {
+  background-color: #CCC;
+}
+
+.actor.sheet .sheet-banner .sheet-label {
+  text-align: right;
+  padding-right: 5px;
+}
+
+/* Actor Header */
+.actor.sheet .actor-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  flex-grow: 0;
+  background: url("/systems/vtm5e/assets/ui/Actor_Header_Background.webp") center;
+  border-bottom: 2px solid var(--system-primary);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0 5px 0 5px;
+}
+
+.actor.sheet .actor-header input,
+.actor.sheet .actor-header .resource {
+  background-color: #CCC;
+}
+
+.actor.sheet .header-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  min-width: 315px;
+}
+
+.actor.sheet .header-profile-img {
+  margin-bottom: 10px;
+  max-width: 100px;
+}
+
+.actor.sheet .charname input {
+  width: 100%;
+  text-align: center;
+  height: 34px;
+}
+
+.actor.sheet .header-fields {
+  display: flex;
+  width: 100%;
+  align-self: flex-end;
+  align-self: center;
+}
+
+.actor.sheet .header-fields-left, .header-fields-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actor.sheet .header-fields-left {
+  flex: 1;
+  padding-right: 10px;
+}
+
+.actor.sheet .header-fields-right {
+  flex: 1;
+  padding-left: 10px;
+}
+
+.actor.sheet .actor-header .field-section {
+  margin-bottom: 5px;
+}
+
+.actor.sheet .actor-header .header-fields-left .field-section {
+  margin-bottom: 5px;
+  width: 200px;
+}
+
+.actor.sheet .actor-header .header-fields-right .field-section {
+  margin-bottom: 5px;
+  width: 250px;
+}
+
+.actor.sheet .actor-header input,
+.actor.sheet .actor-header .resource {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+  border: 1px solid black;
+}
+
+.actor.sheet .actor-header input {
+  min-height: 26px;
+  border-radius: 0;
+}
+
+.actor.sheet .actor-header .field-header {
+  color: #FFF;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.actor.sheet .resource-plus,
+.actor.sheet .resource-minus {
+  cursor: pointer;
+  flex-grow: 0;
+}
+
+.actor.sheet .resource-plus {
+  margin-left: 5px;
+}
+
+.actor.sheet .resource-minus {
+  margin-right: 5px;
+}
+
+.actor.sheet .lock-btn {
+  max-width: 35px;
+  align-self: baseline;
+  background: var(--ui-background-texture);
+  color: #CCC;
+}
+
+.actor.sheet .lock-btn i {
+  margin: auto;
+}
+
+/* Sheet tabs */
+.actor.sheet .sheet-body {
+  padding: 8px;
+}
+
+.actor.sheet .tabs-container {
+  position: absolute;
+  height: 100%;
+  background-color: #9d9d9d;
+  top: 25px;
+  left: -2px;
+  overflow: hidden;
+}
+
+.actor.sheet .sheet-tabs {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 30px);
+  align-items: flex-start;
+  width: 50px;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.actor.sheet .sheet-tabs > [data-tab] {
+  display: flex;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  font-size: 15pt;
+  padding: 5px;
+}
+
+.actor.sheet .sheet-tabs > [data-tab] .navicon {
+  display: flex;
+  align-items: center;
+  background-color: #CCC;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+}
+
+.actor.sheet .sheet-tabs > [data-tab] .navicon i,
+.actor.sheet .sheet-tabs > [data-tab] .navicon .wod5e-symbol {
+  width: 100%;
+}
+
+/* General Resources */
+.actor.sheet .resource-header {
+  display: block;
+  font-weight: 200;
+  font-size: 20pt;
+  border-bottom: 1px solid black;
+  width: 90%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: nowrap;
+}
+
+.vampire-font-headers .actor.sheet .field-header,
+.vampire-font-headers .actor.sheet .resource-header {
+  font-family: "vampireRevised", "sans-serif";
+}
+
+.actor.sheet.locked .resource-label {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.actor.sheet .rollable:hover,
+.actor.sheet label.system-rollable:hover {
+  cursor: pointer;
+  text-shadow: 0 0 5px #e02b2b;
+}
+
+/* Statistics Page */
+.actor.sheet .stats-container {
+  display: flex;
+  flex-flow: column;
+  background-color: #ededec;
+  border: 2px solid #1b1b1b;
+  margin: 5px;
+}
+
+.actor.sheet .stats-list {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.actor.sheet .attribute,
+.actor.sheet .skill {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+}
+
+.actor.sheet form:not(.locked) .attribute .resource-label,
+.actor.sheet form:not(.locked) .skill .resource-label{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.actor.sheet .specialty {
+  position: relative;
+  top: -5px;
+  text-shadow: 0 0 5px #e02b2b;
+  font-size: 10pt;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.vampire-font-headers .actor.sheet .specialty {
+  font-family: "vampireRevised", "sans-serif";
+}
+
+.actor.sheet .stats-content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+.actor.sheet .stats-content > .skills-attributes,
+.actor.sheet .stats-content > .custom-rolls {
+  flex: 1 1 auto;
+}
+
+.actor.sheet .stats-content > .custom-rolls .items-list {
+  flex: 1 1 auto;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.actor.sheet .stats-content > .custom-rolls .item-image {
+  max-width: 30px;
+}
+
+.actor.sheet .stats-content > .custom-rolls .item-name {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.actor.sheet .stats-content > .custom-rolls .item-controls {
+  text-align-last: right;
+  max-width: 30px;
+}
+
+@media (max-width: 600px) {
+  .actor.sheet .stats-content {
+    flex-direction: column;
+  }
+
+  .actor.sheet .stats-content > .custom-rolls {
+    margin-top: 10px;
+  }
+}
+
+.actor.sheet .edit-skill {
+  margin-left: -15px;
+}
+
+.actor.sheet .stats-container .stats-footer {
+  background-color: #CCC;
+  text-align: center;
+}
+
+.actor.sheet .stats-container.attributes .stats-footer {
+  border-bottom: 1px solid black;
+}
+
+.actor.sheet .stats-container.skills .stats-footer {
+  border-top: 1px solid black;
+}
+
+/* Items */
+.actor.sheet .item-header {
+  font-size: 16pt;
+  font-weight: bold;
+}
+
+.vampire-font-headers .actor.sheet .item-header {
+  font-family: "vampireRevised", "sans-serif";
+}
+
+/* Powers */
+.actor.sheet .items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.actor.sheet .item-header .item-controls {
+  text-align-last: right;
+}
+
+.items-list .item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.actor.sheet .items-list .edge-description {
+  margin: 10px 0;
+}
+
+.actor.sheet .items-list .list-contents {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.actor.sheet .item-card {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.actor.sheet .item-card .item-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.actor.sheet .item-image img {
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  padding: 2px;
+  max-width: 25px;
+}
+
+.actor.sheet .item-card .item-name {
+  flex-grow: 1;
+  margin-left: 10px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.actor.sheet .item-card .item-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.actor.sheet .item-card .item-controls a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.actor.sheet .item-card .item-controls a:hover {
+  background-color: #ddd;
+}

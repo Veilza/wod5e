@@ -12,18 +12,12 @@ export class MortalActorSheet extends WoDActor {
   /** @override */
   static get defaultOptions () {
     // Define the base list of CSS classes
-    const classList = ['wod5e', 'sheet', 'actor', 'mortal']
+    const classList = ['mortal-sheet', 'mortal']
+    classList.push(...super.defaultOptions.classes)
 
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: classList,
-      template: 'systems/vtm5e/display/shared/actors/mortal-sheet.hbs',
-      width: 940,
-      height: 700,
-      tabs: [{
-        navSelector: '.sheet-tabs',
-        contentSelector: '.sheet-body',
-        initial: 'stats'
-      }]
+      template: 'systems/vtm5e/display/shared/actors/mortal-sheet.hbs'
     })
   }
 
@@ -45,17 +39,22 @@ export class MortalActorSheet extends WoDActor {
   async getData () {
     // Top-level variables
     const data = await super.getData()
-    const actor = this.actor
 
     // Define the type of sheet
     data.sheetType = `${game.i18n.localize('WOD5E.Mortal')}`
 
     // Prepare items
-    if (actor.type === 'mortal') {
-      this._prepareItems(data)
-    }
+    await this._prepareItems(data)
 
     return data
+  }
+
+  /** Prepare item data for the Mortal actor */
+  async _prepareItems (sheetData) {
+    // Prepare items
+    super._prepareItems(sheetData)
+
+    return sheetData
   }
 
   /* -------------------------------------------- */

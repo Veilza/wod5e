@@ -58,6 +58,11 @@ export class ItemTypes {
     img: 'systems/vtm5e/assets/icons/items/edge.png'
   }
 
+  static edgepool = {
+    label: 'WOD5E.HTR.EdgePool',
+    img: 'systems/vtm5e/assets/icons/items/edgepool.png'
+  }
+
   static gift = {
     label: 'WOD5E.WTA.Gift',
     img: 'systems/vtm5e/assets/icons/items/gift.png'

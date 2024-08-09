@@ -1,0 +1,50 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="item-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" alt="Item Image" />
+        <div class="header-fields flexcol">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'WOD5E.Name'}}" />
+            </h1>
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">{{localize "WOD5E.Tabs.Description"}}</a>
+        <a class="item" data-tab="dicepool">{{localize "WOD5E.Tabs.Dicepool"}}</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            <prose-mirror name="system.description" data-document-u-u-i-d="{{../item.uuid}}" value="{{item.system.description}}"
+                toggled="true">
+                {{{enrichedDescription}}}
+            </prose-mirror>
+        </div>
+
+        {{!-- Dicepool Tab --}}
+        <div class="tab dicepool" data-group="primary" data-tab="dicepool">
+                {{#if item.system.dicepool}}
+                    <div class="resource grid grid-2col flex-center">
+                        {{#each item.system.dicepool as |dice key|}}
+                            <select name="system.dicepool.{{key}}.path">
+                                {{selectOptions ../diceOptions selected=dice.path}}
+                            </select>
+                        {{/each}}
+                    </div>
+                {{else}}
+                    <div class="flex-center">
+                        No dicepools added. Click "Add Dice" to begin constructing a dicepool.
+                    </div>
+                {{/if}}
+            <hr>
+            <div class="flex-center">
+                <a class="add-dice">
+                    Add Dice
+                </a>
+            </div>
+        </div>
+    </section>
+</form>

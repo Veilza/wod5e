@@ -18,7 +18,7 @@
       "HungerDice": "Hunger Dice",
 
       "Humanity": "Humanity",
-      "Predator": "Predator",
+      "PredatorType": "Predator Type",
       "Hunger": "Hunger",
       "HungerFull1": "Hunger Full",
       "HungerFull2": "Already at maximum Hunger, cannot increase it further.",
@@ -29,6 +29,8 @@
       "Discipline": "Discipline",
       "Disciplines": "Disciplines",
       "DisciplineType": "Discipline Type",
+      "StringPowers": "{string} Powers",
+      "NewStringPower": "New {string} Power",
       "Blood": "Blood",
       "BloodPotency": "Blood Potency",
       "BloodResonance": "Blood Resonance",

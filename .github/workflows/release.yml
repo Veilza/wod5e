@@ -29,7 +29,7 @@ jobs:
                             "manifest": "https://github.com/WoD5E-Developers/wod5e/releases/download/${{ github.event.release.tag_name }}/system.json",
                             "notes": "https://github.com/WoD5E-Developers/wod5e/releases/tag/${{ github.event.release.tag_name }}",
                             "compatibility": {
-                                "minimum": "11",
+                                "minimum": "12",
                                 "verified": "12.330",
                                 "maximum": ""
                             }

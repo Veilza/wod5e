@@ -1,0 +1,262 @@
+:root {
+  --hunter-primary: #cc6d28;
+  --hunter-secondary: #ffb762;
+  --cell-group-header: rgb(204 109 40 / 80%);
+}
+
+/* Define splat-specific colours for the WOD5E Symbols */
+.wod5e .wod5e-symbol.hunter {
+  color: var(--hunter-primary);
+}
+
+/* Hunter Actor Sheet */
+.actor.sheet.hunter {
+  .actor-header {
+    border-bottom: 2px solid var(--hunter-primary);
+  }
+
+  .profile-img,
+  .actor-header input,
+  .actor-header .resource {
+    border: 1px solid var(--hunter-primary);
+  }
+
+  .sheet-banner {
+    background-color: var(--hunter-primary);
+    color: #FFF;
+  }
+
+  .tabs-container {
+    background-color: var(--hunter-secondary);
+
+    .navicon .wod5e-symbol {
+        color: var(--hunter-primary);
+    }
+
+    .active .navicon {
+      background-color: var(--hunter-primary);
+      color: #FFF;
+
+      .wod5e-symbol {
+        color: #FFF;
+      }
+    }
+  }
+
+  .lock-btn {
+    background: var(--ui-background-hunter-texture);
+    color: #FFF;
+  }
+
+  .despair-box,
+  .despair-box .despair-toggle {
+    height: 14px;
+    width: 14px;
+  }
+
+  .despair-box .despair-toggle {
+    border: 1px solid #000;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .item-image {
+    flex-grow: 0;
+
+    img {
+      background: var(--ui-background-hunter-texture);
+    }
+  }
+
+  .tab.edges {
+    .edges-list .edge,
+    .perks-list .edge {
+      display: flex;
+      flex-flow: column;
+      background-color: #ededec;
+      border: 2px solid #1b1b1b;
+      margin: 5px;
+      padding: 5px;
+    }
+
+    .edges-list {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+      margin: 0px 10px 10px 10px;
+
+      .item-header {
+        border-bottom: 1px solid black;
+      }
+
+      .item-name {
+        text-wrap: nowrap;
+      }
+
+      .edge-description {
+        max-height: 150px;
+
+        prose-mirror {
+          .editor-menu button:hover {
+            background-color: var(--hunter-primary);
+          }
+
+          li.text {
+            display: none;
+          }
+
+          .editor-content {
+            scrollbar-color: var(--hunter-secondary) var(--color-scrollbar-track);
+          }
+        }
+      }
+
+      .edge-description {
+        margin-bottom: 5px;
+      }
+    }
+
+    .perks-list {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 400px;
+
+      .item-name {
+        text-wrap: nowrap;
+      }
+
+      .item-description {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .edge {
+        .edge-pools {
+          border-top: 1px solid black;
+
+          .edge-pool-label {
+            text-align: center;
+            padding: 2px;
+          }
+
+          .item-controls {
+            text-align: right;
+            display: contents;
+          }
+        }
+
+        .add-edge-pool {
+          font-weight: bold;
+        }
+
+        .add-edge-pool:hover {
+          cursor: pointer;
+        }
+      }
+
+      .perk {
+        .item-image {
+          flex-grow: 0;
+        }
+
+        .item-name {
+          text-align: left;
+          padding: 3px;
+          margin-left: 10px;
+          text-overflow: ellipsis;
+          overflow-x: hidden;
+        }
+
+        .item-controls {
+          text-align: right;
+          display: contents;
+
+          .item-control {
+            margin-left: 3px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* All Sheets with the Hunter styling, including itemsheets */
+.sheet.hunter {
+  box-shadow: 0 0 10px var(--hunter-primary);
+
+  .window-header {
+    background: var(--hunter-primary);
+  }
+
+  .window-content {
+    scrollbar-color: var(--hunter-secondary) var(--hunter-primary);
+  }
+
+  .resource-value .resource-value-step.active,
+  .resource-value-static .resource-value-static-step.active,
+  .resource-counter .resource-counter-step[data-state="-"],
+  .despair-box .despair-toggle.active {
+    background-color: var(--hunter-primary);
+  }
+
+  button.rollable,
+  .actor.sheet .hunter-button {
+    background-color: var(--hunter-secondary);
+    border: 1px solid var(--hunter-primary);
+  }
+}
+
+.hunter.sheet.window-app {
+  .window-resizable-handle {
+    border-top: 3px double var(--hunter-primary);
+    border-left: 3px double var(--hunter-primary);
+    border-bottom: 1px solid var(--hunter-primary);
+    border-right: 1px solid var(--hunter-primary);
+    background-color: var(--hunter-secondary);
+    color: #2b2b2b;
+  }
+}
+
+/* Group Sheets */
+.group-header.cell {
+  background-color: var(--cell-group-header) !important;
+}
+
+/* Dialogs Windows */
+.hunter-dialog.window-app {
+  border: 4px solid var(--hunter-primary);
+
+  .window-header {
+    background: var(--hunter-primary);
+    border-bottom: 4px double #fff;
+  }
+
+  .window-content .sheet-body .tab > .resource-label,
+  .items-list .item-header,
+  .items-list .spc-item-header,
+  .spc-pool-header,
+  .actor-header .profile-img-zone h1 {
+    color: var(--hunter-primary);
+    border-color: var(--hunter-primary);
+  }
+
+  .dialog-contents .dice-group-header {
+    background-color: var(--hunter-primary);
+  }
+
+  input,
+  select {
+    border: 1px solid var(--hunter-primary);
+  }
+
+  .base-dice-group {
+    border: 1px solid var(--hunter-secondary);
+  }
+}
+
+.vampire-font-headers .hunter-button {
+  font-family: "vampireRevised", "sans-serif";
+}

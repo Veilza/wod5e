@@ -1,78 +1,74 @@
-<form class="{{cssClass}} flexcol {{#if locked}}locked{{/if}} vampire-sheet" autocomplete="off">
-  {{#if displayBanner}}
-  <div class="sheet-banner">
-    <h1>{{localize "WOD5E.VTM.Label"}}</h1>
-  </div>
-  {{/if}}
-
-  {{!-- Vampire Sheet Header --}}
-  <header class="actor-header">
-      <div class="header-fields-top">
-        <div class="header-profile-img">
-            {{!-- Actor image and sheet lock toggle button --}}
-            {{> "systems/vtm5e/display/shared/actors/parts/profile-img.hbs"}}
-        </div>
-        <div class="header-rows-top">
-            <div class="header-row-1">
-                {{!-- Text input header fields --}}
-                <h1 class="charname"><input class="no-border" name="name" type="text" value="{{actor.name}}"
-                  placeholder="{{localize 'WOD5E.Name'}}" /></h1>
-                  
-                <h1 class="charname"><input class="no-border" name="system.clan.value" type="text" value="{{actor.system.clan.value}}"
-                  placeholder="{{localize 'WOD5E.VTM.Clan'}}" /></h1>
-
-                <h1 class="charname"><input class="no-border" name="system.headers.predator" type="text" value="{{actor.system.headers.predator}}"
-                  placeholder="{{localize 'WOD5E.VTM.Predator'}}" /></h1>
-            </div>
-            <div class="header-row-2">
+<form class="{{cssClass}} flexcol {{#if locked}}locked{{/if}}" autocomplete="off">
+    {{!-- Vampire Sheet Header --}}
+    <header class="actor-header" {{#if actor.system.settings.headerbg}}style="background: url({{actor.system.settings.headerbg}}) center;"{{/if}}>
+        <div class="header-fields">
+            <div class="header-fields-left">
                 {{!-- Health Tracker --}}
                 {{> "systems/vtm5e/display/shared/actors/parts/health.hbs"}}
-
                 {{!-- Willpower Tracker --}}
                 {{> "systems/vtm5e/display/shared/actors/parts/willpower.hbs"}}
-
-                {{!-- XP Tracker --}}
-                {{> "systems/vtm5e/display/shared/actors/parts/exp.hbs"}}
-
-                {{!-- Anything more that needs to be in the header spot --}}
-                {{> "systems/vtm5e/display/vtm/actors/parts/hunger.hbs"}}
-
-                {{> "systems/vtm5e/display/vtm/actors/parts/rouse.hbs"}}
-
-                {{> "systems/vtm5e/display/vtm/actors/parts/frenzy.hbs"}}
             </div>
         </div>
-    </div>
-  </header>
+        <!-- Middle of the header -->
+        {{> "systems/vtm5e/display/shared/actors/parts/header-profile.hbs"}}
+        <div class="header-fields">
+            <div class="header-fields-right">
+                <div class="flexcol">
+                    <div class="field-section">
+                        <div class="flexrow nowrap">
+                            <div class="flexcol">
+                                <label class="resource-label field-header">{{localize 'WOD5E.VTM.PredatorType'}}</label>
+                                <input name="system.headers.predator" type="text" value="{{actor.system.headers.predator}}" placeholder="{{localize 'WOD5E.VTM.PredatorType'}}"/>
+                            </div>
+                            <div class="flexcol">
+                                <label class="resource-label field-header">{{localize 'WOD5E.VTM.Clan'}}</label>
+                                <input name="system.clan.value" type="text" value="{{actor.system.clan.value}}" placeholder="{{localize 'WOD5E.VTM.Clan'}}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flexcol field-section">
+                        <label class="resource-label field-header">{{localize "WOD5E.VTM.Hunger"}}</label>
+                        <div class="flexrow">
+                            {{> "systems/vtm5e/display/vtm/actors/parts/hunger.hbs"}}
+                            {{> "systems/vtm5e/display/vtm/actors/parts/rouse.hbs"}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-  {{!-- Vampire Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
-      <div class="item" data-tab="stats">{{localize "WOD5E.Tabs.Stats"}}</div>
-      <div class="item" data-tab="disciplines">{{localize "WOD5E.VTM.Disciplines"}}</div>
-      <div class="item" data-tab="features">{{localize "WOD5E.Tabs.Features"}}</div>
-      <div class="item" data-tab="blood">{{localize "WOD5E.VTM.Blood"}}</div>
-      <div class="item" data-tab="description">{{localize "WOD5E.Tabs.Description"}}</div>
-      <div class="item" data-tab="other">{{localize "WOD5E.Tabs.Other"}}</div>
-  </nav>
+    {{!-- Tab Navigation --}}
+    {{> "systems/vtm5e/display/shared/actors/parts/navbar.hbs"}}
 
-  {{!-- Vampire Sheet Body --}}
-  <section class="sheet-body">
-      {{!-- Stats Tab --}}
-      {{> "systems/vtm5e/display/shared/actors/parts/stats.hbs"}}
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        {{!-- Stats Tab --}}
+        {{> "systems/vtm5e/display/shared/actors/parts/stats.hbs"}}
 
-      {{!-- Owned Powers Tab --}}
-      {{> "systems/vtm5e/display/vtm/actors/parts/disciplines.hbs"}}
+        {{!-- Owned Powers Tab --}}
+        {{> "systems/vtm5e/display/vtm/actors/parts/disciplines.hbs"}}
 
-      {{!-- Owned Features Tab --}}
-      {{> "systems/vtm5e/display/shared/actors/parts/features.hbs"}}
+        {{!-- Owned Features Tab --}}
+        {{> "systems/vtm5e/display/shared/actors/parts/features.hbs"}}
 
-      {{!-- Blood Tab --}}
-      {{> "systems/vtm5e/display/vtm/actors/parts/blood.hbs"}}
+        {{!-- Blood Tab --}}
+        {{> "systems/vtm5e/display/vtm/actors/parts/blood.hbs"}}
 
-      {{!-- Biography Tab --}}
-      {{> "systems/vtm5e/display/shared/actors/parts/biography.hbs"}}
+        {{!-- Biography Tab --}}
+        {{> "systems/vtm5e/display/shared/actors/parts/biography.hbs"}}
 
-      {{!-- Other Tab --}}
-      {{> "systems/vtm5e/display/shared/actors/parts/other.hbs"}}
+        {{!-- Other Tab --}}
+        {{> "systems/vtm5e/display/shared/actors/parts/other.hbs"}}
+
+        {{!-- Settings Tab --}}
+        {{> "systems/vtm5e/display/shared/actors/parts/actor-settings.hbs"}}
     </section>
+
+    {{!-- Actor Type Banner --}}
+    {{#if displayBanner}}
+    <div class="sheet-banner">
+      {{localize "WOD5E.VTM.Label"}}
+    </div>
+    {{/if}}
 </form>

@@ -2,19 +2,7 @@
     <header class="item-header">
         <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" alt="Item Image" />
         <div class="header-fields flexcol">
-            <h1 class="charname"><input name="name" type="text" value="{{item.name}}"
-                    placeholder="{{localize 'WOD5E.Name'}}" /></h1>
-            <div class="flexrow">
-                <!-- Select the edge this perk belongs to -->
-                <div class="flexcol edge flex-center">
-                    <label>{{localize "WOD5E.HTR.EdgeType"}}</label>
-                    <select name="system.edge" data-type="String">
-                        {{#select item.system.edge}}
-                        {{> "systems/vtm5e/display/shared/items/parts/edges.hbs"}}
-                        {{/select}}
-                    </select>
-                </div>
-            </div>
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'WOD5E.Name'}}" /></h1>
         </div>
     </header>
 
@@ -30,7 +18,10 @@
     <section class="sheet-body">
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor enrichedDescription target="system.description" button=true editable=editable}}
+            <prose-mirror name="system.description" data-document-u-u-i-d="{{../item.uuid}}" value="{{item.system.description}}"
+                toggled="true">
+                {{{enrichedDescription}}}
+            </prose-mirror>
         </div>
 
         {{!-- Attributes Tab --}}

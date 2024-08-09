@@ -2,7 +2,7 @@
     <ol class="items-list">
         {{#each actor.system.features as |feature key|}}
             <li class="flexrow item-header">
-                <div class="item-name">{{localize (generateLocalizedLabel key)}}</div>
+                <div class="item-name">{{localize (generateLocalizedLabel key 'features')}}</div>
                 <div class="item-controls">
                     <a class="item-control item-create" title="{{localize 'WOD5E.Add'}}" data-type="feature"
                         data-subtype="{{key}}"><i class="fas fa-plus"></i> {{localize "WOD5E.Add"}}</a>
@@ -40,7 +40,7 @@
         {{/each}}
     </ol>
     {{#if (or hasBoons isCharacter)}}
-        <label class="resource-label flex-center">{{localize "WOD5E.ItemsList.Boons"}}</label>
+        <label class="resource-label flex-center item-header">{{localize "WOD5E.ItemsList.Boons"}}</label>
         <ol class="items-list flex-left">
             <li class="item flexrow item-header">
                 <div class="item-name">{{localize "WOD5E.Name"}}</div>

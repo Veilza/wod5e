@@ -1,0 +1,48 @@
+/* Foundry Controls UI */
+.app {
+  background: var(--ui-background-texture);
+}
+
+#players,
+.bar-controls {
+  border-radius: 0;
+}
+
+#controls {
+  ol.control-tools > li {
+    background: var(--ui-background-texture);
+    border-radius: 0px;
+    box-shadow: 0 0 10px var(--system-shadow);
+    border: 1px solid var(--system-border);
+  }
+  
+  ol.control-tools > li.active,
+  ol.control-tools > li:hover {
+    background: var(--ui-background-active-texture);
+  }
+}
+
+#navigation {
+  #scene-list .scene,
+  #scene-list .scene.view,
+  #scene-list .scene.context,
+  #scene-list .scene.gm,
+  .nav-item,
+  #nav-toggle {
+    background: var(--ui-background-texture);
+  }
+  
+  #scene-list .scene.active {
+    background: var(--ui-background-active-texture);
+  }
+}
+
+#hotbar { 
+  .macro {
+    background: rgb(24 51 103 / 50%);
+  }
+
+  .bar-controls {
+    background: var(--ui-background-texture);
+  }
+}

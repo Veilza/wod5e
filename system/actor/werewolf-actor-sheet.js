@@ -1,4 +1,4 @@
-/* global game, foundry, renderTemplate, ChatMessage, Dialog, WOD5E */
+/* global game, foundry, renderTemplate, TextEditor, ChatMessage, Dialog, WOD5E */
 
 import { WOD5eDice } from '../scripts/system-rolls.js'
 import { getActiveBonuses } from '../scripts/rolls/situational-modifiers.js'
@@ -13,18 +13,12 @@ export class WerewolfActorSheet extends WoDActor {
   /** @override */
   static get defaultOptions () {
     // Define the base list of CSS classes
-    const classList = ['wod5e', 'werewolf-sheet', 'actor', 'sheet', 'werewolf']
+    const classList = ['werewolf-sheet', 'werewolf']
+    classList.push(...super.defaultOptions.classes)
 
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: classList,
-      template: 'systems/vtm5e/display/wta/actors/werewolf-sheet.hbs',
-      width: 1050,
-      height: 700,
-      tabs: [{
-        navSelector: '.sheet-tabs',
-        contentSelector: '.sheet-body',
-        initial: 'stats'
-      }]
+      template: 'systems/vtm5e/display/wta/actors/werewolf-sheet.hbs'
     })
   }
 
@@ -43,79 +37,111 @@ export class WerewolfActorSheet extends WoDActor {
 
   /** @override */
   async getData () {
+    // Top-level variables
     const data = await super.getData()
 
+    // Prepare items
     await this._prepareItems(data)
 
-    for (const giftType in data.actor.system.giftsList) {
-      // Localize each gift
-      data.actor.system.giftsList[giftType].label = await WOD5E.api.generateLabelAndLocalize({ string: giftType })
+    // Prepare gifts and rites data
+    data.actor.system.gifts = await this._prepareGiftData(data)
+    data.actor.system.rites = await this._prepareRiteData(data)
+
+    // If the actor's rage is above 0, make sure they aren't in "lost the wolf" form
+    if (data.actor.system.rage.value > 0 && data.actor.system.lostTheWolf) {
+      this.actor.update({ 'system.lostTheWolf': false })
+    }
+
+    // Check if the actor's rage is 0, they're in a supernatural form, and they haven't already lost the wolf
+    const supernaturalForms = ['glabro', 'crinos', 'hispo']
+    if ((data.actor.system.rage.value === 0) && (supernaturalForms.indexOf(data.actor.system.activeForm) > -1)) {
+      this._onLostTheWolf()
     }
 
     return data
   }
 
-  /** Prepare important data for the werewolf actor */
+  /** Prepare item data for the Werewolf actor */
   async _prepareItems (sheetData) {
+    // Prepare items
     super._prepareItems(sheetData)
 
-    const actorData = sheetData.actor
+    // Top-level variables
+    const actor = this.actor
 
-    const giftsList = structuredClone(actorData.system.gifts)
-    let ritesList = structuredClone(actorData.system.rites)
+    // Secondary variables
+    const gifts = actor.system.gifts
+
+    for (const giftType in gifts) {
+      // Localize the gift name
+      gifts[giftType].label = WOD5E.api.generateLabelAndLocalize({ string: giftType, type: 'gift' })
+
+      // Wipe old gift powers so they doesn't duplicate
+      gifts[giftType].powers = []
+    }
+    actor.system.rites = []
 
     // Iterate through items, allocating to containers
     for (const i of sheetData.items) {
       if (i.type === 'gift') {
         if (i.system.giftType === 'rite') {
           // Append to the rites list.
-          ritesList.push(i)
+          actor.system.rites.push(i)
         } else {
           // Append to each of the gift types.
           if (i.system.giftType !== undefined) {
-            giftsList[i.system.giftType].powers.push(i)
+            gifts[i.system.giftType].powers.push(i)
           }
         }
       }
     }
+  }
 
-    // Sort the gift containers by the level of the power instead of by creation date
-    for (const giftType in giftsList) {
-      giftsList[giftType].powers = giftsList[giftType].powers.sort(function (power1, power2) {
-        // If the levels are the same, sort alphabetically instead
-        if (power1.system.level === power2.system.level) {
-          return power1.name.localeCompare(power2.name)
-        }
+  // Handle gift data so we can display it on the actor sheet
+  async _prepareGiftData (sheetData) {
+    const gifts = sheetData.actor.system.gifts
 
-        // Sort by level
-        return power1.system.level - power2.system.level
-      })
+    // Sort the gift containers by the level of the gift instead of by creation date
+    for (const giftType in gifts) {
+      if (gifts[giftType].powers.length > 0) {
+        // If there are any gift powers in the list, make them visible
+        if (!gifts[giftType].visible) gifts[giftType].visible = true
+
+        gifts[giftType].powers = gifts[giftType].powers.sort(function (gift1, gift2) {
+          // If the levels are the same, sort alphabetically instead
+          if (gift1.system.level === gift2.system.level) {
+            return gift1.name.localeCompare(gift2.name)
+          }
+
+          // Sort by level
+          return gift1.system.level - gift2.system.level
+        })
+      }
+
+      // Enrich gift description
+      gifts[giftType].enrichedDescription = await TextEditor.enrichHTML(gifts[giftType].description)
     }
 
-    // Sort the rite containers by the level of the power instead of by creation date
-    ritesList = ritesList.sort(function (power1, power2) {
+    return gifts
+  }
+
+  // Handle rite data so we can display it on the actor sheet
+  async _prepareRiteData (sheetData) {
+    // Secondary variables
+    const rites = sheetData.actor.system.rites
+
+    // Sort the rite containers by the level of the rite instead of by creation date
+    rites.sort(function (rite1, rite2) {
       // If the levels are the same, sort alphabetically instead
-      if (power1.system.level === power2.system.level) {
-        return power1.name.localeCompare(power2.name)
+      if (rite1.system.level === rite2.system.level) {
+        return rite1.name.localeCompare(rite2.name)
       }
 
       // Sort by level
-      return power1.system.level - power2.system.level
+      return rite1.system.level - rite2.system.level
     })
 
-    actorData.system.giftsList = giftsList
-    actorData.system.ritesList = ritesList
-
-    // If the actor's rage is above 0, make sure they aren't in "lost the wolf" form
-    if (actorData.system.rage.value > 0 && actorData.system.lostTheWolf) {
-      this.actor.update({ 'system.lostTheWolf': false })
-    }
-
-    // Check if the actor's rage is 0, they're in a supernatural form, and they haven't already lost the wolf
-    const supernaturalForms = ['glabro', 'crinos', 'hispo']
-    if ((actorData.system.rage.value === 0) && (supernaturalForms.indexOf(actorData.system.activeForm) > -1)) {
-      this._onLostTheWolf()
-    }
+    return rites
   }
 
   /* -------------------------------------------- */
@@ -125,11 +151,14 @@ export class WerewolfActorSheet extends WoDActor {
     // Activate listeners
     super.activateListeners(html)
 
+    // Everything below here is only needed if the sheet is editable
+    if (!this.options.editable) return
+
     // Top-level variables
     const actor = this.actor
 
-    // Everything below here is only needed if the sheet is editable
-    if (!this.options.editable) return
+    // Add a new gift type to the sheet
+    html.find('.add-gift').click(this._onAddGift.bind(this))
 
     // Rollable gift buttons
     html.find('.gift-rollable').click(this._onGiftRoll.bind(this))
@@ -167,6 +196,65 @@ export class WerewolfActorSheet extends WoDActor {
         })
       })
     })
+  }
+
+  /** Handle adding a new gift type to the sheet */
+  async _onAddGift (event) {
+    event.preventDefault()
+
+    // Top-level variables
+    const actor = this.actor
+
+    // Secondary variables
+    const selectLabel = game.i18n.localize('WOD5E.WTA.SelectGift')
+    const itemOptions = WOD5E.Gifts.getList()
+
+    // Variables yet to be defined
+    let options = []
+    let giftSelected
+
+    // Prompt a dialog to determine which edge we're adding
+    // Build the options for the select dropdown
+    for (const [key, value] of Object.entries(itemOptions)) {
+      options += `<option value="${key}">${value.displayName}</option>`
+    }
+
+    // Template for the dialog form
+    const template = `
+      <form>
+        <div class="form-group">
+          <label>${selectLabel}</label>
+          <select id="giftSelect">${options}</select>
+        </div>
+      </form>`
+
+    // Define dialog buttons
+    const buttons = {
+      submit: {
+        icon: '<i class="fas fa-check"></i>',
+        label: game.i18n.localize('WOD5E.Add'),
+        callback: async (html) => {
+          giftSelected = html.find('#giftSelect')[0].value
+
+          // Make the edge visible
+          await actor.update({ [`system.gifts.${giftSelected}.visible`]: true })
+        }
+      },
+      cancel: {
+        icon: '<i class="fas fa-times"></i>',
+        label: game.i18n.localize('WOD5E.Cancel')
+      }
+    }
+
+    // Display the dialog
+    new Dialog({
+      title: game.i18n.localize('WOD5E.Add'),
+      content: template,
+      buttons,
+      default: 'submit'
+    }, {
+      classes: ['wod5e', 'werewolf-dialog', 'werewolf-sheet']
+    }).render(true)
   }
 
   /**

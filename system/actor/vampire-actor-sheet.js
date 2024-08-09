@@ -13,18 +13,12 @@ export class VampireActorSheet extends GhoulActorSheet {
   /** @override */
   static get defaultOptions () {
     // Define the base list of CSS classes
-    const classList = ['wod5e', 'sheet', 'actor', 'vampire', 'vampire-sheet']
+    const classList = ['vampire-sheet']
+    classList.push(...super.defaultOptions.classes)
 
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: classList,
-      template: 'systems/vtm5e/display/vtm/actors/vampire-sheet.hbs',
-      width: 940,
-      height: 700,
-      tabs: [{
-        navSelector: '.sheet-tabs',
-        contentSelector: '.sheet-body',
-        initial: 'stats'
-      }]
+      template: 'systems/vtm5e/display/vtm/actors/vampire-sheet.hbs'
     })
   }
 
@@ -45,18 +39,16 @@ export class VampireActorSheet extends GhoulActorSheet {
   async getData () {
     const data = await super.getData()
 
-    this._prepareItems(data)
+    // Prepare items
+    await this._prepareItems(data)
+
+    // Prepare discipline data
+    data.actor.system.disciplines = await this._prepareDisciplineData(data)
 
     return data
   }
 
-  /**
-     * set Blood Potency for Vampire sheets.
-     *
-     * @param {Object} actorData The actor to prepare.
-     * @return {undefined}
-     * @override
-     */
+  /** Prepare item data for the Vampire actor */
   async _prepareItems (sheetData) {
     // Prepare items
     super._prepareItems(sheetData)

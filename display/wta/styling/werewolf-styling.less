@@ -1,0 +1,311 @@
+:root {
+  --werewolf-primary: #4e2100;
+  --werewolf-secondary: #994101;
+  --pack-group-header: rgba(78, 33, 0, 0.8);
+}
+
+/* Define splat-specific colours for the WOD5E Symbols */
+.wod5e .wod5e-symbol.werewolf {
+  color: var(--werewolf-primary);
+}
+
+/* Actor Sheet */
+.actor.sheet.werewolf {
+  .actor-header {
+    border-bottom: 2px solid var(--werewolf-primary);
+  }
+
+  .profile-img,
+  .actor-header input,
+  .actor-header .resource {
+    border: 1px solid var(--werewolf-primary);
+  }
+
+  .sheet-banner {
+    background-color: var(--werewolf-primary);
+    color: #FFF;
+  }
+
+  .tabs-container {
+    background-color: var(--werewolf-secondary);
+
+    .navicon .wod5e-symbol,
+    .item[data-tab="wolf"] {
+        color: var(--werewolf-secondary);
+    }
+
+    .active .navicon {
+      background-color: var(--werewolf-primary);
+      color: #FFF;
+
+      .wod5e-symbol {
+        color: #FFF;
+      }
+    }
+  }
+
+  .lock-btn {
+    background: var(--ui-background-werewolf-texture);
+  }
+
+  .item-image {
+    flex-grow: 0;
+
+    img {
+      background: var(--ui-background-vampire-texture);
+    }
+  }
+
+  .tab.gifts {
+    .gifts-list .gift,
+    .powers-list .gift {
+      display: flex;
+      flex-flow: column;
+      background-color: #ededec;
+      border: 2px solid #1b1b1b;
+      margin: 5px;
+      padding: 5px;
+    }
+
+    .gifts-list {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+      margin: 0px 10px 10px 10px;
+
+      .item-header {
+        border-bottom: 1px solid black;
+      }
+
+      .item-controls {
+        text-align: right;
+      }
+
+      .controls {
+        border-bottom: 1px solid black;
+      }
+
+      .item-name {
+        text-wrap: nowrap;
+      }
+
+      .gift-description {
+        max-height: 100px;
+
+        prose-mirror {
+          .editor-menu button:hover {
+            background-color: var(--werewolf-primary);
+          }
+
+          li.text {
+            display: none;
+          }
+
+          .editor-content {
+            scrollbar-color: var(--werewolf-secondary) var(--color-scrollbar-track);
+          }
+        }
+      }
+
+      .gift-description {
+        margin-bottom: 5px;
+      }
+    }
+
+    .powers-list {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 400px;
+
+      .item-name {
+        text-wrap: nowrap;
+      }
+
+      .item-description {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .power {
+        .item-image {
+          flex-grow: 0;
+        }
+
+        .item-name {
+          text-align: left;
+          padding: 3px;
+          margin-left: 10px;
+          text-overflow: ellipsis;
+          overflow-x: hidden;
+        }
+
+        .item-controls {
+          text-align: right;
+          display: contents;
+
+          .item-control {
+            margin-left: 3px;
+          }
+        }
+      }
+    }
+  }
+
+  .tab.wolf {
+    .garou-forms-label {
+      font-size: 20pt;
+    }
+
+    .forms {
+      .form {
+        border-radius: 0;
+        background-color: #CCC;
+        border: 1px solid black;
+      }
+
+      .form-active {
+        background: #d985359a;
+      }
+    }
+  }
+}
+
+/* All Sheets with the Werewolf styling, including itemsheets */
+.sheet.werewolf {
+  box-shadow: 0 0 10px var(--werewolf-primary);
+
+  .window-header {
+    background: var(--werewolf-primary);
+  }
+
+  .window-content {
+    scrollbar-color: var(--werewolf-secondary) var(--werewolf-primary);
+  }
+
+  .resource-value .resource-value-step.active,
+  .resource-value-static .resource-value-static-step.active,
+  .resource-counter .resource-counter-step[data-state="-"] {
+    background-color: var(--werewolf-secondary);
+  }
+
+  button.rollable,
+  .actor.sheet .werewolf-button {
+    background-color: var(--werewolf-secondary);
+    border: 1px solid var(--werewolf-primary);
+  }
+
+  .rage-button {
+    max-width: 35px;
+    max-height: 35px;
+
+    .wod5e-symbol {
+      vertical-align: middle;
+      color: #CCC;
+    }
+  }
+
+  button.werewolf-button {
+    background: var(--werewolf-primary);
+    color: #fff;
+    font-family: cormorantLight, serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border: none;
+    box-shadow: none;
+    border: 1px solid black;
+  }
+
+  button.werewolf-button:hover {
+    background: #bb6a30ef;
+  }
+
+  button.werewolf-button.active,
+  button.werewolf-button.active:hover {
+    font-size: 20pt;
+    color: #FFF;
+    cursor: default;
+    margin-bottom: 10px;
+    background: #a14503;
+  }
+  
+  button.werewolf-button.disabled,
+  button.werewolf-button.disabled:hover {
+    color: #000;
+    cursor: default;
+    background: #562f13ef;
+  }
+}
+
+.werewolf.sheet.window-app {
+  .window-resizable-handle {
+    border-top: 3px double var(--werewolf-primary);
+    border-left: 3px double var(--werewolf-primary);
+    border-bottom: 1px solid var(--werewolf-primary);
+    border-right: 1px solid var(--werewolf-primary);
+    background-color: var(--werewolf-secondary);
+    color: #e9e9e9;
+  }
+}
+
+/* Group Sheets */
+.group-header.pack {
+  background-color: var(--pack-group-header) !important;
+}
+
+/* Dialogs Windows */
+.werewolf-dialog.window-app {
+  border: 4px solid var(--werewolf-primary);
+
+  .window-header {
+    background: var(--werewolf-primary);
+    border-bottom: 4px double #fff;
+  }
+
+  .window-content .sheet-body .tab > .resource-label,
+  .items-list .item-header,
+  .items-list .spc-item-header,
+  .spc-pool-header,
+  .actor-header .profile-img-zone h1 {
+    color: var(--werewolf-primary);
+    border-color: var(--werewolf-primary);
+  }
+
+  .dialog-contents .dice-group-header {
+    background-color: var(--werewolf-primary);
+  }
+
+  input,
+  select {
+    border: 1px solid var(--werewolf-primary);
+  }
+
+  .base-dice-group {
+    border: 1px solid var(--werewolf-secondary);
+  }
+}
+
+/* Balance Trackers */
+.actor.sheet .resource.balance {
+  flex-direction: row;
+
+  .balance .resource-value-empty {
+    margin-left: 0;
+  }
+
+  .balance .harano {
+    margin-right: auto;
+  }
+
+  .balance .hauglosk {
+    margin-left: auto;
+  }
+}
+
+.vampire-font-headers .werewolf-button,
+.vampire-font-headers .garou-forms-label,
+.vampire-font-headers .forms .were-form-name {
+  font-family: "vampireRevised", "sans-serif";
+}

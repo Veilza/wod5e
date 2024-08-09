@@ -3,7 +3,9 @@
     <div class="resource" style="min-height: 264px;"> 
         <div class="flex-group-left">
             <div class="description-content">
-                {{editor enrichedNotes target="system.notes" button=true editable=editable}}
+                <prose-mirror name="system.notes" data-document-u-u-i-d="{{../actor.uuid}}" value="{{actor.system.notes}}" toggled="true">
+                    {{{enrichedNotes}}}
+                </prose-mirror>
             </div>
         </div>
     </div>

@@ -17,7 +17,9 @@
                 <div class="flex-center">
                     <label class="resource-label"><h2>{{localize "WOD5E.Tabs.Notes"}}</h2></label>
                 </div>                  
-                {{editor enrichedNotes target="system.notes" button=true editable=editable}}
+                <prose-mirror name="system.notes" data-document-u-u-i-d="{{../actor.uuid}}" value="{{actor.system.notes}}" toggled="true">
+                    {{{enrichedNotes}}}
+                </prose-mirror>
             </div>
         {{else}}
             <div class="grid grid-2col flexrow">                    
@@ -25,13 +27,17 @@
                     <div class="flex-center">
                         <label class="resource-label"><h2>{{localize "WOD5E.BiographyList.Label"}}</h2></label>
                     </div>              
-                    {{editor enrichedBiography target="system.biography" button=true editable=editable}}
+                    <prose-mirror name="system.biography" data-document-u-u-i-d="{{../actor.uuid}}" value="{{actor.system.biography}}" toggled="true">
+                        {{{enrichedBiography}}}
+                    </prose-mirror>
                 </div>              
                 <div class="tab appearance description-content">
                     <div class="flex-center">
                         <label class="resource-label"><h2>{{localize "WOD5E.BiographyList.Appearance"}}</h2></label>
                     </div>              
-                    {{editor enrichedAppearance target="system.appearance" button=true editable=editable}}
+                    <prose-mirror name="system.appearance" data-document-u-u-i-d="{{../actor.uuid}}" value="{{actor.system.appearance}}" toggled="true">
+                        {{{enrichedAppearance}}}
+                    </prose-mirror>
                 </div>
             </div>
         {{/ifeq}}

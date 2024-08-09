@@ -1,0 +1,2358 @@
+:root {
+  --hunter-primary: #cc6d28;
+  --hunter-secondary: #ffb762;
+  --cell-group-header: rgba(204, 109, 40, 0.8);
+}
+/* Define splat-specific colours for the WOD5E Symbols */
+.wod5e .wod5e-symbol.hunter {
+  color: var(--hunter-primary);
+}
+/* Hunter Actor Sheet */
+.actor.sheet.hunter .actor-header {
+  border-bottom: 2px solid var(--hunter-primary);
+}
+.actor.sheet.hunter .profile-img,
+.actor.sheet.hunter .actor-header input,
+.actor.sheet.hunter .actor-header .resource {
+  border: 1px solid var(--hunter-primary);
+}
+.actor.sheet.hunter .sheet-banner {
+  background-color: var(--hunter-primary);
+  color: #FFF;
+}
+.actor.sheet.hunter .tabs-container {
+  background-color: var(--hunter-secondary);
+}
+.actor.sheet.hunter .tabs-container .navicon .wod5e-symbol {
+  color: var(--hunter-primary);
+}
+.actor.sheet.hunter .tabs-container .active .navicon {
+  background-color: var(--hunter-primary);
+  color: #FFF;
+}
+.actor.sheet.hunter .tabs-container .active .navicon .wod5e-symbol {
+  color: #FFF;
+}
+.actor.sheet.hunter .lock-btn {
+  background: var(--ui-background-hunter-texture);
+  color: #FFF;
+}
+.actor.sheet.hunter .despair-box,
+.actor.sheet.hunter .despair-box .despair-toggle {
+  height: 14px;
+  width: 14px;
+}
+.actor.sheet.hunter .despair-box .despair-toggle {
+  border: 1px solid #000;
+  display: inline-block;
+  cursor: pointer;
+}
+.actor.sheet.hunter .item-image {
+  flex-grow: 0;
+}
+.actor.sheet.hunter .item-image img {
+  background: var(--ui-background-hunter-texture);
+}
+.actor.sheet.hunter .tab.edges .edges-list .edge,
+.actor.sheet.hunter .tab.edges .perks-list .edge {
+  display: flex;
+  flex-flow: column;
+  background-color: #ededec;
+  border: 2px solid #1b1b1b;
+  margin: 5px;
+  padding: 5px;
+}
+.actor.sheet.hunter .tab.edges .edges-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0px 10px 10px 10px;
+}
+.actor.sheet.hunter .tab.edges .edges-list .item-header {
+  border-bottom: 1px solid black;
+}
+.actor.sheet.hunter .tab.edges .edges-list .item-name {
+  text-wrap: nowrap;
+}
+.actor.sheet.hunter .tab.edges .edges-list .edge-description {
+  max-height: 150px;
+}
+.actor.sheet.hunter .tab.edges .edges-list .edge-description prose-mirror .editor-menu button:hover {
+  background-color: var(--hunter-primary);
+}
+.actor.sheet.hunter .tab.edges .edges-list .edge-description prose-mirror li.text {
+  display: none;
+}
+.actor.sheet.hunter .tab.edges .edges-list .edge-description prose-mirror .editor-content {
+  scrollbar-color: var(--hunter-secondary) var(--color-scrollbar-track);
+}
+.actor.sheet.hunter .tab.edges .edges-list .edge-description {
+  margin-bottom: 5px;
+}
+.actor.sheet.hunter .tab.edges .perks-list {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px;
+}
+.actor.sheet.hunter .tab.edges .perks-list .item-name {
+  text-wrap: nowrap;
+}
+.actor.sheet.hunter .tab.edges .perks-list .item-description {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.actor.sheet.hunter .tab.edges .perks-list .edge .edge-pools {
+  border-top: 1px solid black;
+}
+.actor.sheet.hunter .tab.edges .perks-list .edge .edge-pools .edge-pool-label {
+  text-align: center;
+  padding: 2px;
+}
+.actor.sheet.hunter .tab.edges .perks-list .edge .edge-pools .item-controls {
+  text-align: right;
+  display: contents;
+}
+.actor.sheet.hunter .tab.edges .perks-list .edge .add-edge-pool {
+  font-weight: bold;
+}
+.actor.sheet.hunter .tab.edges .perks-list .edge .add-edge-pool:hover {
+  cursor: pointer;
+}
+.actor.sheet.hunter .tab.edges .perks-list .perk .item-image {
+  flex-grow: 0;
+}
+.actor.sheet.hunter .tab.edges .perks-list .perk .item-name {
+  text-align: left;
+  padding: 3px;
+  margin-left: 10px;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+.actor.sheet.hunter .tab.edges .perks-list .perk .item-controls {
+  text-align: right;
+  display: contents;
+}
+.actor.sheet.hunter .tab.edges .perks-list .perk .item-controls .item-control {
+  margin-left: 3px;
+}
+/* All Sheets with the Hunter styling, including itemsheets */
+.sheet.hunter {
+  box-shadow: 0 0 10px var(--hunter-primary);
+}
+.sheet.hunter .window-header {
+  background: var(--hunter-primary);
+}
+.sheet.hunter .window-content {
+  scrollbar-color: var(--hunter-secondary) var(--hunter-primary);
+}
+.sheet.hunter .resource-value .resource-value-step.active,
+.sheet.hunter .resource-value-static .resource-value-static-step.active,
+.sheet.hunter .resource-counter .resource-counter-step[data-state="-"],
+.sheet.hunter .despair-box .despair-toggle.active {
+  background-color: var(--hunter-primary);
+}
+.sheet.hunter button.rollable,
+.sheet.hunter .actor.sheet .hunter-button {
+  background-color: var(--hunter-secondary);
+  border: 1px solid var(--hunter-primary);
+}
+.hunter.sheet.window-app .window-resizable-handle {
+  border-top: 3px double var(--hunter-primary);
+  border-left: 3px double var(--hunter-primary);
+  border-bottom: 1px solid var(--hunter-primary);
+  border-right: 1px solid var(--hunter-primary);
+  background-color: var(--hunter-secondary);
+  color: #2b2b2b;
+}
+/* Group Sheets */
+.group-header.cell {
+  background-color: var(--cell-group-header) !important;
+}
+/* Dialogs Windows */
+.hunter-dialog.window-app {
+  border: 4px solid var(--hunter-primary);
+}
+.hunter-dialog.window-app .window-header {
+  background: var(--hunter-primary);
+  border-bottom: 4px double #fff;
+}
+.hunter-dialog.window-app .window-content .sheet-body .tab > .resource-label,
+.hunter-dialog.window-app .items-list .item-header,
+.hunter-dialog.window-app .items-list .spc-item-header,
+.hunter-dialog.window-app .spc-pool-header,
+.hunter-dialog.window-app .actor-header .profile-img-zone h1 {
+  color: var(--hunter-primary);
+  border-color: var(--hunter-primary);
+}
+.hunter-dialog.window-app .dialog-contents .dice-group-header {
+  background-color: var(--hunter-primary);
+}
+.hunter-dialog.window-app input,
+.hunter-dialog.window-app select {
+  border: 1px solid var(--hunter-primary);
+}
+.hunter-dialog.window-app .base-dice-group {
+  border: 1px solid var(--hunter-secondary);
+}
+.vampire-font-headers .hunter-button {
+  font-family: "vampireRevised", "sans-serif";
+}
+
+:root {
+  --mortal-primary: #302d5bf0;
+  --mortal-secondary: #706ca5f0;
+}
+/* Define splat-specific colours for the WOD5E Symbols */
+.wod5e-symbol.mortal {
+  color: var(--mortal-primary);
+}
+/* All Mortal-styled Sheets, Including Itemsheets */
+.sheet.mortal {
+  box-shadow: 0 0 10px var(--mortal-primary);
+  /* Resource counters */
+}
+.sheet.mortal .window-header {
+  background: var(--mortal-primary);
+}
+.sheet.mortal .window-content {
+  scrollbar-color: var(--mortal-secondary) var(--mortal-primary);
+}
+.sheet.mortal .window-app .window-resizable-handle {
+  border-top: 3px double var(--mortal-primary);
+  border-left: 3px double var(--mortal-primary);
+  border-bottom: 1px solid var(--mortal-primary);
+  border-right: 1px solid var(--mortal-primary);
+  background-color: var(--mortal-secondary);
+  color: #2b2b2b;
+}
+.sheet.mortal .resource-value .resource-value-step.active,
+.sheet.mortal .resource-value-static .resource-value-static-step.active,
+.sheet.mortal .resource-counter .resource-counter-step[data-state="-"] {
+  background-color: var(--mortal-primary);
+}
+/* Dialog Windows */
+.mortal-dialog .window-app {
+  border: 4px solid var(--mortal-primary);
+}
+.mortal-dialog .window-app .window-header {
+  border-bottom: 4px double #fff;
+}
+.mortal-dialog .window-header {
+  background: var(--mortal-primary);
+}
+.mortal-dialog .window-content .sheet-body .tab > .resource-label,
+.mortal-dialog .items-list .item-header,
+.mortal-dialog .items-list .spc-item-header,
+.mortal-dialog .spc-pool-header,
+.mortal-dialog .actor-header .profile-img-zone h1 {
+  color: var(--mortal-primary);
+  border-color: var(--mortal-primary);
+}
+.mortal-dialog .dialog-contents .dice-group-header {
+  background-color: var(--mortal-primary);
+}
+.mortal-dialog input,
+.mortal-dialog select {
+  border: 1px solid var(--mortal-primary);
+}
+.mortal-dialog .base-dice-group {
+  border: 1px solid var(--mortal-secondary);
+}
+/* Mortal Actor Sheet */
+.actor.sheet.mortal .actor-header {
+  border-bottom: 2px solid var(--mortal-primary);
+}
+.actor.sheet.mortal .profile-img,
+.actor.sheet.mortal .actor-header input,
+.actor.sheet.mortal .actor-header .resource {
+  border: 1px solid var(--mortal-primary);
+}
+.actor.sheet.mortal .sheet-banner {
+  background-color: var(--mortal-primary);
+  color: #ffffff;
+}
+.actor.sheet.mortal .tabs-container {
+  background-color: var(--mortal-secondary);
+}
+.actor.sheet.mortal .tabs-container .active .navicon {
+  background-color: var(--mortal-primary);
+  color: #FFF;
+}
+.actor.sheet.mortal .tabs-container .active .navicon .wod5e-symbol {
+  color: #FFF;
+}
+.actor.sheet.mortal .lock-btn {
+  background: var(--ui-background-texture);
+}
+.actor.sheet.mortal .sheet-banner .sheet-label {
+  color: #CCC;
+}
+.actor.sheet.mortal .actor-header input,
+.actor.sheet.mortal .actor-header .resource {
+  border: 1px solid var(--mortal-primary);
+}
+/* Group Sheets */
+.group-header.cell {
+  background-color: rgba(204, 109, 40, 0.8) !important;
+}
+
+@font-face {
+  font-family: 'Martel';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/martel/v11/PN_xRfK9oXHga0XtYQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Martel';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/martel/v11/PN_yRfK9oXHga0XVwe4ahQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmSU5vAw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmEU9vAw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Amarante';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/amarante/v28/xMQXuF1KTa6EvGx9bq-3.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Vollkorn';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vollkorn/v23/0ybuGDoxxrvAnPhYGxksckM2WMCpRjDj-DJGWmmZ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Vollkorn';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vollkorn/v23/0ybuGDoxxrvAnPhYGxksckM2WMCpRjDj-DJ0WmmZ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Vollkorn';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vollkorn/v23/0ybuGDoxxrvAnPhYGxksckM2WMCpRjDj-DKYXWmZ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Vollkorn';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vollkorn/v23/0ybuGDoxxrvAnPhYGxksckM2WMCpRjDj-DKhXWmZ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Vollkorn';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vollkorn/v23/0ybgGDoxxrvAnPhYGzMlQLzuMasz6Df2MHGuGQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Vollkorn';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vollkorn/v23/0ybgGDoxxrvAnPhYGzMlQLzuMasz6Df2AnGuGQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Vollkorn';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vollkorn/v23/0ybgGDoxxrvAnPhYGzMlQLzuMasz6Df27nauGQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Vollkorn';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vollkorn/v23/0ybgGDoxxrvAnPhYGzMlQLzuMasz6Df213auGQ.ttf) format('truetype');
+}
+/* Variables */
+:root {
+  --system-primary: #302d5bf0;
+  --system-border: #d2dfebf0;
+  --system-shadow: #827dcaf0;
+  --ui-background-texture: url("/systems/vtm5e/assets/ui/ui_background_texture.webp");
+  --ui-background-active-texture: url("/systems/vtm5e/assets/ui/ui_background_active_texture.webp");
+}
+/* Fonts */
+@font-face {
+  font-family: "cormorantLight";
+  src: url("/systems/vtm5e/assets/fonts/Cormorant-Light-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "wod5eSymbols";
+  src: url("/systems/vtm5e/assets/fonts/wod5e-symbols.ttf") format("truetype");
+}
+@font-face {
+  font-family: "vampireRevised";
+  src: url("/systems/vtm5e/assets/fonts/vampire-revised.ttf") format("truetype");
+}
+/* Define the class that will be used for WOD5E symbols */
+.wod5e-symbol {
+  font-family: "wod5eSymbols", "sans-serif";
+  font-size: 16pt;
+}
+/* Application window Header */
+.application .window-header {
+  background: var(--system-primary);
+  flex: 0 0 25px;
+  line-height: 20px;
+  padding-top: 2px;
+}
+.window-app .window-header {
+  flex: 0 0 25px;
+  line-height: 20px;
+  padding-top: 2px;
+}
+/* Sheet Window Content */
+.sheet .window-content {
+  box-shadow: 0 0 5px var(--system-primary);
+}
+/* Top-left Logo */
+#logo {
+  content: url(/systems/vtm5e/assets/ui/WoD_Logo.webp);
+  width: auto;
+}
+/* Adjust the UI top offset to compensate for the bigger logo */
+#ui-top.offset {
+  margin-left: 15px;
+}
+/* Hide the color scheme option in core Foundry settings
+* because WOD5E defines its own for users to use */
+#client-settings .form-group[data-setting-id="core.colorScheme"] {
+  display: none;
+}
+/* Pause */
+#pause {
+  background: none;
+}
+#pause img {
+  content: url(/systems/vtm5e/assets/ui/Pause.webp);
+  --fa-animation-duration: 0s;
+}
+#pause figcaption {
+  margin-top: 55px;
+  color: #000;
+  font-weight: bold;
+}
+/* Only use this font with the .vampire-font-headers class enabled */
+.vampire-font-headers #pause figcaption {
+  font-family: "vampireRevised", "sans-serif";
+}
+prose-mirror .editor-menu {
+  background: #333;
+  height: 30px;
+  padding: 2px;
+  border-radius: 0;
+}
+prose-mirror .editor-menu button {
+  color: #CCC;
+}
+.prosemirror menu .pm-dropdown {
+  background: transparent;
+}
+
+/* Actors Sidebar */
+.actors-sidebar .group-item {
+  border: none;
+  border-left: 1px solid var(--color-border-dark-1);
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+.actors-sidebar .group-item .context {
+  background-color: transparent !important;
+  border-color: var(--color-border-highlight);
+}
+.actors-sidebar .group-item > .group-header {
+  padding: 6px;
+  line-height: 24px;
+  background: rgba(255 255 255 20%);
+  border-top: 1px sod var(--color-border-dark);
+  border-bottom: 1px sod var(--color-border-dark);
+}
+.actors-sidebar .group-item > .group-header h3 {
+  margin: 0;
+  color: var(--color-text-ght-highght);
+  font-size: var(--font-size-16);
+  line-height: 24px;
+}
+.actors-sidebar .group-item > .group-header h3 > i {
+  margin-right: 10px;
+}
+.actors-sidebar .group-item > .group-header .create-button {
+  position: relative;
+  flex: 0 0 20px;
+  margin-left: 3px;
+  text-align: center;
+}
+.actors-sidebar .group-item > .group-header .create-button.create-folder {
+  font-size: 120%;
+}
+.actors-sidebar .group-item > .group-header .create-button .fa-plus {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  font-size: 0.5rem;
+  background: black;
+  color: var(--color-text-ght-highght);
+  padding: 1px;
+}
+.actors-sidebar .group-item > .group-header .create-button:hover .fa-plus {
+  color: var(--color-text-hypernk);
+}
+.actors-sidebar .group-item.collapsed .subdirectory {
+  display: none;
+}
+.actors-sidebar .group-item.collapsed > .group-header {
+  background: rgba(0 0 0 50%);
+}
+.actors-sidebar .group-item.droptarget > header h3 {
+  text-shadow: 1px 1px 3px var(--color-shadow-dark);
+  font-size: 1.2em;
+}
+.actors-sidebar .group-item.collapsed > .group-header h3 {
+  text-shadow: none;
+}
+.actors-sidebar .group-item.collapsed > .group-header h3 > i::before {
+  content: "\f07b";
+}
+.actors-sidebar .group-item.collapsed > .group-header .create-folder {
+  display: none;
+}
+.actors-sidebar .group-item.droptarget > header h3 i {
+  text-shadow: 0 0 4px var(--color-shadow-primary);
+  transform: scale(1.2);
+}
+
+#chat-log .message {
+  margin: 10px 5px 10px 10px;
+  border: 0;
+  border-top: 2px double #CCC;
+}
+.chat-message {
+  background-color: #4b4b4b;
+  background-blend-mode: multiply;
+  color: #f5f5f5;
+  margin: 3px;
+  padding: 5px 9px;
+  border-radius: 0;
+}
+.chat-message .message-header {
+  color: #FFF;
+}
+.chat-message .message-header .message-sender {
+  flex: 3;
+  margin: 0;
+  white-space: nowrap;
+  font-family: Amarante, serif;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.chat-message a.content-link,
+.chat-message a.inline-roll {
+  color: #000;
+}
+.chat-message .dice-result {
+  cursor: pointer;
+}
+.chat-message .modifiers {
+  margin-bottom: 2px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.chat-message .modifiers .mod {
+  text-transform: uppercase;
+  font-size: 8pt;
+  background-color: #fff;
+  padding: 0 5px;
+  border: 1px solid #424242;
+  margin: 1px 3px;
+  color: #000;
+}
+.chat-message .total-and-difficulty {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #000;
+  border-bottom: 0;
+}
+.chat-message .roll-total,
+.chat-message .roll-difficulty {
+  display: flex;
+  flex-grow: 1;
+  text-align: center;
+  justify-content: space-evenly;
+}
+.chat-message .total-title,
+.chat-message .difficulty-title {
+  font-weight: bold;
+}
+.chat-message .roll-result-label {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #000;
+  background: #222;
+}
+.chat-message .roll-result-label.success,
+.chat-message .roll-result-label.critical-success {
+  background-color: #065200;
+  color: #dbd6d6;
+}
+.chat-message .roll-result-label.messy-critical {
+  background-color: #f10808;
+  color: #c5c3c3;
+}
+.chat-message .roll-result-label.failure,
+.chat-message .roll-result-label.critical-failure,
+.chat-message .roll-result-label.bestial-failure {
+  background-color: #900;
+  color: #dbdbdb;
+}
+.chat-message .roll-result-label.desperation-failure {
+  background-color: #e97c00;
+}
+.chat-message .roll-result-label.rage-failure {
+  background-color: #783b01;
+  color: #dbdbdb;
+}
+.roll-img {
+  max-width: 40px;
+  margin: 2px;
+  border-radius: 4px;
+}
+.roll-img.mortal-dice {
+  background: #141414;
+  border-color: #0f3705;
+}
+.roll-img.vampire-dice {
+  background: #141414;
+  border-color: #c8c8c8;
+}
+.roll-img.hunger-dice,
+.roll-img.rage-dice {
+  background: #9b0b00;
+  border-color: #330300;
+}
+.roll-img.hunter-dice {
+  background: #ee7e1f;
+  border-color: black;
+}
+.roll-img.desperation-dice {
+  background: black;
+  border-color: #cc6d28;
+}
+.roll-img.werewolf-dice {
+  background: #5d651a;
+  border-color: #131405;
+}
+.roll-img.rerolled {
+  background: #7b7b7b80;
+}
+.roll-img.hunger-dice.rerolled,
+.roll-img.rage-dice.rerolled {
+  border-color: #d3d3d3;
+  filter: invert(1);
+}
+.roll-label {
+  font-weight: 700;
+  font-family: Vollkorn, serif;
+  font-variant-caps: titling-caps;
+  font-size: 1.4em;
+  margin: 0.1em;
+  text-align: center;
+}
+.roll-label .danger {
+  color: #831515;
+}
+.roll-label .success {
+  color: #18520b;
+}
+.roll-label:nth-of-type(1) {
+  line-height: 1em;
+  margin-top: 0.4em;
+  margin-bottom: 0.3em;
+}
+.roll-content {
+  font-size: 120%;
+  font-family: Vollkorn, serif;
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+p.roll-label.uppercase {
+  letter-spacing: 0.03rem;
+  line-height: 1.4rem;
+}
+.willpower-reroll .die {
+  flex: 0;
+}
+.willpower-reroll .selected::after {
+  position: absolute;
+  font-size: 35px;
+  font-weight: 700;
+  margin-left: -38px;
+  margin-top: 0;
+  content: "⟳";
+}
+h3.item-name {
+  border-bottom: 0;
+  margin: 0;
+  align-items: center;
+  font-family: Amarante, serif;
+  font-size: 1.4em;
+}
+
+/* Foundry Controls UI */
+.app {
+  background: var(--ui-background-texture);
+}
+#players,
+.bar-controls {
+  border-radius: 0;
+}
+#controls ol.control-tools > li {
+  background: var(--ui-background-texture);
+  border-radius: 0px;
+  box-shadow: 0 0 10px var(--system-shadow);
+  border: 1px solid var(--system-border);
+}
+#controls ol.control-tools > li.active,
+#controls ol.control-tools > li:hover {
+  background: var(--ui-background-active-texture);
+}
+#navigation #scene-list .scene,
+#navigation #scene-list .scene.view,
+#navigation #scene-list .scene.context,
+#navigation #scene-list .scene.gm,
+#navigation .nav-item,
+#navigation #nav-toggle {
+  background: var(--ui-background-texture);
+}
+#navigation #scene-list .scene.active {
+  background: var(--ui-background-active-texture);
+}
+#hotbar .macro {
+  background: rgba(24, 51, 103, 0.5);
+}
+#hotbar .bar-controls {
+  background: var(--ui-background-texture);
+}
+
+
+.dialog-contents .dice-group-header {
+  border-bottom: 0;
+  font-weight: bold;
+  color: #e5e5e5;
+  display: flex;
+  flex-direction: row;
+}
+.dialog-contents .base-dice-group {
+  border-top: 0;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+.dialog-contents .base-dice-group .basic-dice,
+.dialog-contents .base-dice-group .advanced-dice,
+.dialog-contents .dice-group-header label {
+  margin-left: auto;
+  margin-right: auto;
+}
+.dialog-contents input {
+  border-radius: 0;
+}
+.dialog-contents .dice-input input {
+  max-width: 50px;
+}
+.dialog-contents .dice-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dialog-contents .dice-input img {
+  background-color: #000;
+}
+.dialog-contents .dialog-control {
+  margin-top: 5px;
+}
+.dialog-contents .dialog-control:hover,
+.dialog-contents .dialog-control:focus {
+  color: #000;
+  cursor: pointer;
+}
+.dialog-contents .situational-modifiers {
+  position: absolute;
+  display: inline-block;
+  width: 250px;
+  top: 0;
+  left: 400px;
+  background-color: #faf5ed;
+  box-shadow: 0 0 10px var(--color-shadow-dark);
+  border-width: 3px;
+}
+.dialog-contents .situational-modifiers .list-title {
+  font-weight: bold;
+}
+.dialog-contents .custom-modifiers .mod-delete {
+  margin: 5px;
+}
+.dialog-contents .custom-modifiers .mod-label {
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.dialog-contents .custom-modifiers .mod-value {
+  max-width: 30px;
+  margin-right: 45px;
+}
+.dialog-contents .situational-modifiers .mod-header {
+  font-weight: bold;
+}
+.dialog-contents .selectors-group {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+.dialog-contents .selectors-group .primary-selector {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.dialog-contents .selectors-group .selector-title {
+  font-size: 13pt;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.dialog-contents .selectors-group .middle {
+  font-size: 20pt;
+}
+.dialog-contents .selectors-group .selector-title {
+  margin: auto;
+}
+.dialog-contents .secondary-selector {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.dialog-contents .secondary-selector .selector-title {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.selector-content {
+  margin: auto;
+}
+.dialog-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0;
+}
+
+:root {
+  --primary-sidebar-color: #181818;
+}
+/* General Sidebar Styling */
+#sidebar {
+  background: url(/systems/vtm5e/assets/ui/sidebar.webp) repeat;
+  border: 0;
+  margin: 0;
+  height: 100%;
+  border-radius: 0;
+}
+#sidebar-tabs {
+  background: #000;
+  margin: 0;
+  border-bottom: 1px solid #ffffff;
+}
+#sidebar-tabs > .item {
+  border-radius: 0;
+}
+#sidebar-tabs > .item.active {
+  background: #690a0a;
+}
+.directory .action-buttons button {
+  background: #2e2d77;
+  color: #fff;
+}
+.subdirectory {
+  background: var(--primary-sidebar-color);
+}
+/* Headers */
+.combat-sidebar .combat-tracker-header,
+.directory .directory-header {
+  border-bottom: 2px groove #CCC;
+  background: var(--primary-sidebar-color);
+}
+/* Footers */
+.directory .directory-footer:not(:empty) {
+  background: rgba(0, 0, 0, 0.836);
+}
+/* Settings Sidebar */
+.settings-sidebar h2 {
+  margin-bottom: 0;
+  border-bottom: 2px groove #CCC;
+  background: var(--primary-sidebar-color);
+}
+.settings-sidebar button {
+  margin: 3px 0;
+}
+.settings-sidebar #game-details,
+.settings-sidebar #settings-game,
+.settings-sidebar #settings-documentation,
+.settings-sidebar #settings-access,
+.settings-sidebar #license-information {
+  background: #000000a6;
+  margin: 0;
+  padding: 10px;
+}
+.settings-sidebar #game-details .system-title,
+.settings-sidebar #game-details .system-info {
+  flex-grow: 1;
+}
+.settings-sidebar #game-details .external-system-links {
+  text-align: right;
+}
+
+:root {
+  --vampire-primary: #650202;
+  --vampire-secondary: #d84343;
+  --vampire-tertiary: #f51f1f;
+  --coterie-group-header: rgba(121, 8, 19, 0.8);
+}
+/* Define splat-specific colours for the WOD5E Symbols */
+.wod5e .wod5e-symbol.vampire {
+  color: var(--vampire-primary);
+}
+/* Vampire Actor Sheet */
+.actor.sheet.vampire .actor-header {
+  border-bottom: 2px solid var(--vampire-primary);
+}
+.actor.sheet.vampire .profile-img,
+.actor.sheet.vampire .actor-header input,
+.actor.sheet.vampire .actor-header .resource {
+  border: 1px solid var(--vampire-primary);
+}
+.actor.sheet.vampire .sheet-banner {
+  background-color: var(--vampire-primary);
+  color: #FFF;
+}
+.actor.sheet.vampire .tabs-container {
+  background-color: var(--vampire-secondary);
+}
+.actor.sheet.vampire .tabs-container .navicon .wod5e-symbol,
+.actor.sheet.vampire .tabs-container .item[data-tab="blood"] {
+  color: var(--vampire-primary);
+}
+.actor.sheet.vampire .tabs-container .active .navicon {
+  background-color: var(--vampire-primary);
+  color: #FFF;
+}
+.actor.sheet.vampire .tabs-container .active .navicon .wod5e-symbol {
+  color: #FFF;
+}
+.actor.sheet.vampire .lock-btn {
+  background-color: var(--vampire-tertiary);
+  background-blend-mode: luminosity;
+}
+.actor.sheet.vampire .item-image {
+  flex-grow: 0;
+}
+.actor.sheet.vampire .item-image img {
+  background: var(--ui-background-vampire-texture);
+}
+.actor.sheet.vampire .tab.disciplines .disciplines-list .discipline,
+.actor.sheet.vampire .tab.disciplines .powers-list .discipline {
+  display: flex;
+  flex-flow: column;
+  background-color: #ededec;
+  border: 2px solid #1b1b1b;
+  margin: 5px;
+  padding: 5px;
+}
+.actor.sheet.vampire .tab.disciplines .disciplines-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0px 10px 10px 10px;
+}
+.actor.sheet.vampire .tab.disciplines .disciplines-list .item-header {
+  border-bottom: 1px solid black;
+}
+.actor.sheet.vampire .tab.disciplines .disciplines-list .item-controls {
+  text-align: right;
+  padding: 5px;
+}
+.actor.sheet.vampire .tab.disciplines .disciplines-list .controls {
+  border-bottom: 1px solid black;
+}
+.actor.sheet.vampire .tab.disciplines .disciplines-list .item-name {
+  text-wrap: nowrap;
+}
+.actor.sheet.vampire .tab.disciplines .disciplines-list .discipline-description {
+  max-height: 100px;
+}
+.actor.sheet.vampire .tab.disciplines .disciplines-list .discipline-description prose-mirror .editor-menu button:hover {
+  background-color: var(--vampire-primary);
+}
+.actor.sheet.vampire .tab.disciplines .disciplines-list .discipline-description prose-mirror li.text {
+  display: none;
+}
+.actor.sheet.vampire .tab.disciplines .disciplines-list .discipline-description prose-mirror .editor-content {
+  scrollbar-color: var(--vampire-secondary) var(--color-scrollbar-track);
+}
+.actor.sheet.vampire .tab.disciplines .disciplines-list .discipline-description {
+  margin-bottom: 5px;
+}
+.actor.sheet.vampire .tab.disciplines .powers-list {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px;
+}
+.actor.sheet.vampire .tab.disciplines .powers-list .item-name {
+  text-wrap: nowrap;
+}
+.actor.sheet.vampire .tab.disciplines .powers-list .item-description {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.actor.sheet.vampire .tab.disciplines .powers-list .power .item-image {
+  flex-grow: 0;
+}
+.actor.sheet.vampire .tab.disciplines .powers-list .power .item-name {
+  text-align: left;
+  padding: 3px;
+  margin-left: 10px;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+.actor.sheet.vampire .tab.disciplines .powers-list .power .item-controls {
+  text-align: right;
+  display: contents;
+}
+.actor.sheet.vampire .tab.disciplines .powers-list .power .item-controls .item-control {
+  margin-left: 3px;
+}
+/* All Sheets with the Vampire styling, including itemsheets */
+.sheet.vampire {
+  box-shadow: 0 0 10px var(--vampire-primary);
+}
+.sheet.vampire .window-header {
+  background: var(--vampire-primary);
+}
+.sheet.vampire .window-content {
+  scrollbar-color: var(--vampire-secondary) var(--vampire-primary);
+}
+.sheet.vampire .resource-value .resource-value-step.active,
+.sheet.vampire .resource-value-static .resource-value-static-step.active,
+.sheet.vampire .resource-counter .resource-counter-step[data-state="-"] {
+  background-color: var(--vampire-tertiary);
+}
+.sheet.vampire button.rollable,
+.sheet.vampire .vampire-button {
+  background-color: var(--vampire-primary);
+  background-blend-mode: luminosity;
+  color: #CCC;
+}
+.sheet.vampire .rouse-button {
+  max-width: 35px;
+  max-height: 35px;
+}
+.sheet.vampire .rouse-button .wod5e-symbol {
+  vertical-align: middle;
+}
+.vampire.sheet.window-app .window-resizable-handle {
+  border-top: 3px double var(--vampire-primary);
+  border-left: 3px double var(--vampire-primary);
+  border-bottom: 1px solid var(--vampire-primary);
+  border-right: 1px solid var(--vampire-primary);
+  background-color: var(--vampire-secondary);
+  color: #e9e9e9;
+}
+/* Group Sheets */
+.group-header.coterie {
+  background-color: var(--coterie-group-header) !important;
+}
+/* Dialogs Windows */
+.vampire-dialog.window-app {
+  border: 4px solid var(--vampire-primary);
+}
+.vampire-dialog.window-app .window-header {
+  background: var(--vampire-primary);
+  border-bottom: 4px double #fff;
+}
+.vampire-dialog.window-app .window-content .sheet-body .tab > .resource-label,
+.vampire-dialog.window-app .items-list .item-header,
+.vampire-dialog.window-app .items-list .spc-item-header,
+.vampire-dialog.window-app .spc-pool-header,
+.vampire-dialog.window-app .actor-header .profile-img-zone h1 {
+  color: var(--vampire-primary);
+  border-color: var(--vampire-primary);
+}
+.vampire-dialog.window-app .dialog-contents .dice-group-header {
+  background-color: var(--vampire-primary);
+}
+.vampire-dialog.window-app input,
+.vampire-dialog.window-app select {
+  border: 1px solid var(--vampire-primary);
+}
+.vampire-dialog.window-app .base-dice-group {
+  border: 1px solid var(--vampire-secondary);
+}
+.vampire-font-headers .vampire-button {
+  font-family: "vampireRevised", "sans-serif";
+}
+
+:root {
+  --werewolf-primary: #4e2100;
+  --werewolf-secondary: #994101;
+  --pack-group-header: rgba(78, 33, 0, 0.8);
+}
+/* Define splat-specific colours for the WOD5E Symbols */
+.wod5e .wod5e-symbol.werewolf {
+  color: var(--werewolf-primary);
+}
+/* Actor Sheet */
+.actor.sheet.werewolf .actor-header {
+  border-bottom: 2px solid var(--werewolf-primary);
+}
+.actor.sheet.werewolf .profile-img,
+.actor.sheet.werewolf .actor-header input,
+.actor.sheet.werewolf .actor-header .resource {
+  border: 1px solid var(--werewolf-primary);
+}
+.actor.sheet.werewolf .sheet-banner {
+  background-color: var(--werewolf-primary);
+  color: #FFF;
+}
+.actor.sheet.werewolf .tabs-container {
+  background-color: var(--werewolf-secondary);
+}
+.actor.sheet.werewolf .tabs-container .navicon .wod5e-symbol,
+.actor.sheet.werewolf .tabs-container .item[data-tab="wolf"] {
+  color: var(--werewolf-secondary);
+}
+.actor.sheet.werewolf .tabs-container .active .navicon {
+  background-color: var(--werewolf-primary);
+  color: #FFF;
+}
+.actor.sheet.werewolf .tabs-container .active .navicon .wod5e-symbol {
+  color: #FFF;
+}
+.actor.sheet.werewolf .lock-btn {
+  background: var(--ui-background-werewolf-texture);
+}
+.actor.sheet.werewolf .item-image {
+  flex-grow: 0;
+}
+.actor.sheet.werewolf .item-image img {
+  background: var(--ui-background-vampire-texture);
+}
+.actor.sheet.werewolf .tab.gifts .gifts-list .gift,
+.actor.sheet.werewolf .tab.gifts .powers-list .gift {
+  display: flex;
+  flex-flow: column;
+  background-color: #ededec;
+  border: 2px solid #1b1b1b;
+  margin: 5px;
+  padding: 5px;
+}
+.actor.sheet.werewolf .tab.gifts .gifts-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0px 10px 10px 10px;
+}
+.actor.sheet.werewolf .tab.gifts .gifts-list .item-header {
+  border-bottom: 1px solid black;
+}
+.actor.sheet.werewolf .tab.gifts .gifts-list .item-controls {
+  text-align: right;
+}
+.actor.sheet.werewolf .tab.gifts .gifts-list .controls {
+  border-bottom: 1px solid black;
+}
+.actor.sheet.werewolf .tab.gifts .gifts-list .item-name {
+  text-wrap: nowrap;
+}
+.actor.sheet.werewolf .tab.gifts .gifts-list .gift-description {
+  max-height: 100px;
+}
+.actor.sheet.werewolf .tab.gifts .gifts-list .gift-description prose-mirror .editor-menu button:hover {
+  background-color: var(--werewolf-primary);
+}
+.actor.sheet.werewolf .tab.gifts .gifts-list .gift-description prose-mirror li.text {
+  display: none;
+}
+.actor.sheet.werewolf .tab.gifts .gifts-list .gift-description prose-mirror .editor-content {
+  scrollbar-color: var(--werewolf-secondary) var(--color-scrollbar-track);
+}
+.actor.sheet.werewolf .tab.gifts .gifts-list .gift-description {
+  margin-bottom: 5px;
+}
+.actor.sheet.werewolf .tab.gifts .powers-list {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px;
+}
+.actor.sheet.werewolf .tab.gifts .powers-list .item-name {
+  text-wrap: nowrap;
+}
+.actor.sheet.werewolf .tab.gifts .powers-list .item-description {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.actor.sheet.werewolf .tab.gifts .powers-list .power .item-image {
+  flex-grow: 0;
+}
+.actor.sheet.werewolf .tab.gifts .powers-list .power .item-name {
+  text-align: left;
+  padding: 3px;
+  margin-left: 10px;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+.actor.sheet.werewolf .tab.gifts .powers-list .power .item-controls {
+  text-align: right;
+  display: contents;
+}
+.actor.sheet.werewolf .tab.gifts .powers-list .power .item-controls .item-control {
+  margin-left: 3px;
+}
+.actor.sheet.werewolf .tab.wolf .garou-forms-label {
+  font-size: 20pt;
+}
+.actor.sheet.werewolf .tab.wolf .forms .form {
+  border-radius: 0;
+  background-color: #CCC;
+  border: 1px solid black;
+}
+.actor.sheet.werewolf .tab.wolf .forms .form-active {
+  background: #d985359a;
+}
+/* All Sheets with the Werewolf styling, including itemsheets */
+.sheet.werewolf {
+  box-shadow: 0 0 10px var(--werewolf-primary);
+}
+.sheet.werewolf .window-header {
+  background: var(--werewolf-primary);
+}
+.sheet.werewolf .window-content {
+  scrollbar-color: var(--werewolf-secondary) var(--werewolf-primary);
+}
+.sheet.werewolf .resource-value .resource-value-step.active,
+.sheet.werewolf .resource-value-static .resource-value-static-step.active,
+.sheet.werewolf .resource-counter .resource-counter-step[data-state="-"] {
+  background-color: var(--werewolf-secondary);
+}
+.sheet.werewolf button.rollable,
+.sheet.werewolf .actor.sheet .werewolf-button {
+  background-color: var(--werewolf-secondary);
+  border: 1px solid var(--werewolf-primary);
+}
+.sheet.werewolf .rage-button {
+  max-width: 35px;
+  max-height: 35px;
+}
+.sheet.werewolf .rage-button .wod5e-symbol {
+  vertical-align: middle;
+  color: #CCC;
+}
+.sheet.werewolf button.werewolf-button {
+  background: var(--werewolf-primary);
+  color: #fff;
+  font-family: cormorantLight, serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border: none;
+  box-shadow: none;
+  border: 1px solid black;
+}
+.sheet.werewolf button.werewolf-button:hover {
+  background: #bb6a30ef;
+}
+.sheet.werewolf button.werewolf-button.active,
+.sheet.werewolf button.werewolf-button.active:hover {
+  font-size: 20pt;
+  color: #FFF;
+  cursor: default;
+  margin-bottom: 10px;
+  background: #a14503;
+}
+.sheet.werewolf button.werewolf-button.disabled,
+.sheet.werewolf button.werewolf-button.disabled:hover {
+  color: #000;
+  cursor: default;
+  background: #562f13ef;
+}
+.werewolf.sheet.window-app .window-resizable-handle {
+  border-top: 3px double var(--werewolf-primary);
+  border-left: 3px double var(--werewolf-primary);
+  border-bottom: 1px solid var(--werewolf-primary);
+  border-right: 1px solid var(--werewolf-primary);
+  background-color: var(--werewolf-secondary);
+  color: #e9e9e9;
+}
+/* Group Sheets */
+.group-header.pack {
+  background-color: var(--pack-group-header) !important;
+}
+/* Dialogs Windows */
+.werewolf-dialog.window-app {
+  border: 4px solid var(--werewolf-primary);
+}
+.werewolf-dialog.window-app .window-header {
+  background: var(--werewolf-primary);
+  border-bottom: 4px double #fff;
+}
+.werewolf-dialog.window-app .window-content .sheet-body .tab > .resource-label,
+.werewolf-dialog.window-app .items-list .item-header,
+.werewolf-dialog.window-app .items-list .spc-item-header,
+.werewolf-dialog.window-app .spc-pool-header,
+.werewolf-dialog.window-app .actor-header .profile-img-zone h1 {
+  color: var(--werewolf-primary);
+  border-color: var(--werewolf-primary);
+}
+.werewolf-dialog.window-app .dialog-contents .dice-group-header {
+  background-color: var(--werewolf-primary);
+}
+.werewolf-dialog.window-app input,
+.werewolf-dialog.window-app select {
+  border: 1px solid var(--werewolf-primary);
+}
+.werewolf-dialog.window-app .base-dice-group {
+  border: 1px solid var(--werewolf-secondary);
+}
+/* Balance Trackers */
+.actor.sheet .resource.balance {
+  flex-direction: row;
+}
+.actor.sheet .resource.balance .balance .resource-value-empty {
+  margin-left: 0;
+}
+.actor.sheet .resource.balance .balance .harano {
+  margin-right: auto;
+}
+.actor.sheet .resource.balance .balance .hauglosk {
+  margin-left: auto;
+}
+.vampire-font-headers .werewolf-button,
+.vampire-font-headers .garou-forms-label,
+.vampire-font-headers .forms .were-form-name {
+  font-family: "vampireRevised", "sans-serif";
+}
+
+
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://fonts.gstatic.com/s/googlesans/v58/4UaRrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iq2vgCIhMl07v0x.woff2") format("woff2");
+}
+body.ru {
+  font-family: "Roboto", "Arial", sans-serif;
+}
+body.ru .actor.sheet {
+  min-width: 950px;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://fonts.gstatic.com/s/googlesans/v58/4UaRrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iq2vgCIhMl07v0x.woff2") format("woff2");
+}
+body.uk {
+  font-family: "Roboto", "Arial", sans-serif;
+}
+body.uk .actor.sheet {
+  min-width: 950px;
+}
+
+/* The actor sheet itself */
+.actor.sheet {
+  position: fixed;
+  overflow: hidden;
+  min-width: 850px;
+  min-height: 300px;
+  border-radius: 0;
+}
+.actor.sheet .window-content {
+  background: url(/systems/vtm5e/assets/actor/actor_background.webp) repeat;
+  padding: 0;
+  padding-bottom: 20px;
+  overflow-y: scroll;
+}
+.actor.sheet .window-content form {
+  margin-left: 45px;
+}
+/* Increase z-index of the window handle to compensate for the actor banner*/
+.window-app .window-resizable-handle {
+  z-index: 2;
+}
+/* Collapsible Descrptions */
+.actor.sheet .collapsible-content {
+  padding: 0 1em;
+}
+.actor.sheet .collapsible:hover,
+.actor.sheet .collapsible:focus {
+  cursor: pointer;
+}
+.actor.sheet .collapsible-content {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  font-family: Vollkorn, serif;
+  line-height: 1.6em;
+  word-spacing: 0.05em;
+  font-size: 1.1em;
+  color: hwb(0deg 7% 98% / 100%);
+  background: #eeece8;
+}
+.actor.sheet .discipline-description,
+.actor.sheet .edge-description,
+.actor.sheet .gift-description {
+  width: 100%;
+  resize: none;
+  font-family: Vollkorn, serif;
+  line-height: 1.6em;
+  word-spacing: 0.05em;
+  font-size: 1em;
+  border: 0;
+  height: auto;
+  font-weight: 500;
+  margin-bottom: -8px;
+}
+/* Sheet Banner */
+.actor.sheet .sheet-banner {
+  text-align: center;
+  margin: -10px -10px 5px;
+  background-color: var(--system-primary);
+  font-size: 14pt;
+  padding: 3px;
+  position: absolute;
+  bottom: -6px;
+  width: 100%;
+  left: 10px;
+  z-index: 1;
+  justify-content: center;
+}
+.vampire-font-headers .actor.sheet .sheet-banner {
+  font-family: "vampireRevised", "sans-serif";
+}
+.actor.sheet .sheet-banner .actor-type-field {
+  text-align: left;
+  padding-left: 5px;
+}
+.actor.sheet .sheet-banner .actor-type-field select {
+  background-color: #CCC;
+}
+.actor.sheet .sheet-banner .sheet-label {
+  text-align: right;
+  padding-right: 5px;
+}
+/* Actor Header */
+.actor.sheet .actor-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  flex-grow: 0;
+  background: url("/systems/vtm5e/assets/ui/Actor_Header_Background.webp") center;
+  border-bottom: 2px solid var(--system-primary);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0 5px 0 5px;
+}
+.actor.sheet .actor-header input,
+.actor.sheet .actor-header .resource {
+  background-color: #CCC;
+}
+.actor.sheet .header-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  min-width: 315px;
+}
+.actor.sheet .header-profile-img {
+  margin-bottom: 10px;
+  max-width: 100px;
+}
+.actor.sheet .charname input {
+  width: 100%;
+  text-align: center;
+  height: 34px;
+}
+.actor.sheet .header-fields {
+  display: flex;
+  width: 100%;
+  align-self: flex-end;
+  align-self: center;
+}
+.actor.sheet .header-fields-left,
+.header-fields-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.actor.sheet .header-fields-left {
+  flex: 1;
+  padding-right: 10px;
+}
+.actor.sheet .header-fields-right {
+  flex: 1;
+  padding-left: 10px;
+}
+.actor.sheet .actor-header .field-section {
+  margin-bottom: 5px;
+}
+.actor.sheet .actor-header .header-fields-left .field-section {
+  margin-bottom: 5px;
+  width: 200px;
+}
+.actor.sheet .actor-header .header-fields-right .field-section {
+  margin-bottom: 5px;
+  width: 250px;
+}
+.actor.sheet .actor-header input,
+.actor.sheet .actor-header .resource {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+  border: 1px solid black;
+}
+.actor.sheet .actor-header input {
+  min-height: 26px;
+  border-radius: 0;
+}
+.actor.sheet .actor-header .field-header {
+  color: #FFF;
+  justify-content: center;
+  margin-bottom: 0;
+}
+.actor.sheet .resource-plus,
+.actor.sheet .resource-minus {
+  cursor: pointer;
+  flex-grow: 0;
+}
+.actor.sheet .resource-plus {
+  margin-left: 5px;
+}
+.actor.sheet .resource-minus {
+  margin-right: 5px;
+}
+.actor.sheet .lock-btn {
+  max-width: 35px;
+  align-self: baseline;
+  background: var(--ui-background-texture);
+  color: #CCC;
+}
+.actor.sheet .lock-btn i {
+  margin: auto;
+}
+/* Sheet tabs */
+.actor.sheet .sheet-body {
+  padding: 8px;
+}
+.actor.sheet .tabs-container {
+  position: absolute;
+  height: 100%;
+  background-color: #9d9d9d;
+  top: 25px;
+  left: -2px;
+  overflow: hidden;
+}
+.actor.sheet .sheet-tabs {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 30px);
+  align-items: flex-start;
+  width: 50px;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+.actor.sheet .sheet-tabs > [data-tab] {
+  display: flex;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  font-size: 15pt;
+  padding: 5px;
+}
+.actor.sheet .sheet-tabs > [data-tab] .navicon {
+  display: flex;
+  align-items: center;
+  background-color: #CCC;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+}
+.actor.sheet .sheet-tabs > [data-tab] .navicon i,
+.actor.sheet .sheet-tabs > [data-tab] .navicon .wod5e-symbol {
+  width: 100%;
+}
+/* General Resources */
+.actor.sheet .resource-header {
+  display: block;
+  font-weight: 200;
+  font-size: 20pt;
+  border-bottom: 1px solid black;
+  width: 90%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: nowrap;
+}
+.vampire-font-headers .actor.sheet .field-header,
+.vampire-font-headers .actor.sheet .resource-header {
+  font-family: "vampireRevised", "sans-serif";
+}
+.actor.sheet.locked .resource-label {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.actor.sheet .rollable:hover,
+.actor.sheet label.system-rollable:hover {
+  cursor: pointer;
+  text-shadow: 0 0 5px #e02b2b;
+}
+/* Statistics Page */
+.actor.sheet .stats-container {
+  display: flex;
+  flex-flow: column;
+  background-color: #ededec;
+  border: 2px solid #1b1b1b;
+  margin: 5px;
+}
+.actor.sheet .stats-list {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+.actor.sheet .attribute,
+.actor.sheet .skill {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+}
+.actor.sheet form:not(.locked) .attribute .resource-label,
+.actor.sheet form:not(.locked) .skill .resource-label {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.actor.sheet .specialty {
+  position: relative;
+  top: -5px;
+  text-shadow: 0 0 5px #e02b2b;
+  font-size: 10pt;
+  font-weight: bold;
+  cursor: pointer;
+}
+.vampire-font-headers .actor.sheet .specialty {
+  font-family: "vampireRevised", "sans-serif";
+}
+.actor.sheet .stats-content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+.actor.sheet .stats-content > .skills-attributes,
+.actor.sheet .stats-content > .custom-rolls {
+  flex: 1 1 auto;
+}
+.actor.sheet .stats-content > .custom-rolls .items-list {
+  flex: 1 1 auto;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.actor.sheet .stats-content > .custom-rolls .item-image {
+  max-width: 30px;
+}
+.actor.sheet .stats-content > .custom-rolls .item-name {
+  flex-grow: 1;
+  text-align: center;
+}
+.actor.sheet .stats-content > .custom-rolls .item-controls {
+  text-align-last: right;
+  max-width: 30px;
+}
+@media (max-width: 600px) {
+  .actor.sheet .stats-content {
+    flex-direction: column;
+  }
+  .actor.sheet .stats-content > .custom-rolls {
+    margin-top: 10px;
+  }
+}
+.actor.sheet .edit-skill {
+  margin-left: -15px;
+}
+.actor.sheet .stats-container .stats-footer {
+  background-color: #CCC;
+  text-align: center;
+}
+.actor.sheet .stats-container.attributes .stats-footer {
+  border-bottom: 1px solid black;
+}
+.actor.sheet .stats-container.skills .stats-footer {
+  border-top: 1px solid black;
+}
+/* Items */
+.actor.sheet .item-header {
+  font-size: 16pt;
+  font-weight: bold;
+}
+.vampire-font-headers .actor.sheet .item-header {
+  font-family: "vampireRevised", "sans-serif";
+}
+/* Powers */
+.actor.sheet .items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.actor.sheet .item-header .item-controls {
+  text-align-last: right;
+}
+.items-list .item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.actor.sheet .items-list .edge-description {
+  margin: 10px 0;
+}
+.actor.sheet .items-list .list-contents {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.actor.sheet .item-card {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.actor.sheet .item-card .item-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.actor.sheet .item-image img {
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  padding: 2px;
+  max-width: 25px;
+}
+.actor.sheet .item-card .item-name {
+  flex-grow: 1;
+  margin-left: 10px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.actor.sheet .item-card .item-controls {
+  display: flex;
+  gap: 5px;
+}
+.actor.sheet .item-card .item-controls a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+.actor.sheet .item-card .item-controls a:hover {
+  background-color: #ddd;
+}
+
+/* Grids */
+.wod5e .grid,
+.wod5e .grid-2col {
+  display: grid;
+  grid-column: span 2 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+.wod5e .grid-3col {
+  grid-column: span 3 / span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.wod5e .grid-4col {
+  grid-column: span 4 / span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.wod5e .grid-5col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+/* Flexbox shorthand */
+.wod5e .flex-group-center,
+.wod5e .flex-group-left,
+.wod5e .flex-group-right {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+}
+.wod5e .flex-group-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+.wod5e .flex-group-right {
+  justify-content: flex-end;
+  text-align: right;
+}
+.wod5e .flex-center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.wod5e .flex-left {
+  align-items: left;
+  justify-content: left;
+  text-align: left;
+}
+.wod5e .flex-between {
+  justify-content: space-between;
+}
+.wod5e .nowrap {
+  flex-wrap: nowrap;
+}
+
+.item.sheet .item-header {
+  flex: 0 0 215px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.item.sheet .item-header .profile-img {
+  flex: 0 0 100px;
+  min-height: 50px;
+  max-height: 205px;
+  height: auto;
+  width: 100px;
+  margin-right: 0;
+}
+.item.sheet .item-header .header-fields {
+  flex: 1;
+}
+.item.sheet .item-header input[type="number"] {
+  max-width: 35px;
+}
+
+/* wod5e.css */
+.locked .item-edit,
+.locked .item-create,
+.locked .item-delete,
+.locked .item-edit,
+.locked .edit-skill,
+.locked .add-edge,
+.locked .add-edge-pool,
+.locked .add-discipline,
+.locked .discipline-delete,
+.locked .add-gift,
+.locked .resource-plus,
+.locked .resource-minus,
+.locked .resource-value-empty:not(.hunger-value, .rage-value),
+.locked a.item-control.exceptionalskill-create,
+.locked .exceptionalskill-delete,
+.locked .power-create,
+.locked .power-delete,
+.group-sheet .locked .remove-actor {
+  display: none;
+}
+/* Set resource counters to use the default cursor */
+.locked .resource-value-empty:not(.hunger-value, .rage-value),
+.locked .resource-value-step:not(.hunger-value, .rage-value),
+.locked .resource-plus,
+.locked .resource-minus {
+  cursor: default;
+}
+
+.resource-value {
+  align-self: flex-end;
+}
+.resource-value .resource-value-step {
+  height: 14px;
+  width: 14px;
+  border: 1px solid #000;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #00000047;
+}
+.resource-value-static .resource-value-static-step {
+  height: 14px;
+  width: 14px;
+  border: 1px solid #000;
+  display: inline-block;
+  border-radius: 50%;
+}
+.resource-value .resource-value-empty {
+  height: 14px;
+  width: 14px;
+  border: 1px solid #000;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+}
+.resource-counter .resource-counter-step {
+  height: 14px;
+  width: 14px;
+  border: 1px solid #000;
+  display: inline-block;
+  cursor: pointer;
+}
+.resource-counter .resource-counter-step[data-state="/"] {
+  background: linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+}
+.resource-counter .resource-counter-step[data-state="x"] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+}
+.flex-group-center:not(.flexrow) .resource-value,
+.flex-group-center:not(.flexrow) .resource-counter {
+  margin-top: 5px;
+}
+.cell-resource-counter .cell-resource-counter-step {
+  height: 14px;
+  width: 14px;
+  border: 1px solid #000;
+  display: inline-block;
+  cursor: pointer;
+}
+.cell-resource-counter .cell-resource-counter-step[data-state="/"] {
+  background: linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+}
+.cell-resource-counter .cell-resource-counter-step[data-state="x"] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+}
+.flex-group-center:not(.flexrow) .resource-value,
+.flex-group-center:not(.flexrow) .cell-resource-counter {
+  margin-top: 5px;
+}
+.tab.disciplines .resource-value,
+.tab.edges .resource-value {
+  margin-top: 2px;
+  text-align: center;
+}
+.tab.features .resource-value,
+.tab.features .resource-value-static {
+  margin-top: 2px;
+  text-align: center;
+}
+.actor.sheet .resource-value-empty {
+  margin-left: -16px;
+}
+
+/* Variables */
+:root {
+  --system-dark-primary: #000000f0;
+  --system-dark-secondary: #1d1d1d;
+  --system-dark-tertiary: #7a7a7a;
+  --system-dark-accent: #FFF;
+  --ui-background-dark-texture: url("/systems/vtm5e/assets/ui/ui_background_dark_texture.webp");
+}
+.dark-theme {
+  /* Vampire Styling */
+  /* Werewolf Styling */
+  /* Hunter Styling */
+  /* Sidebar */
+  /* Foundry Controls UI */
+}
+.dark-theme .actor.sheet {
+  /* Navbar */
+  /* Resource Counters */
+}
+.dark-theme .actor.sheet .actor-header input,
+.dark-theme .actor.sheet .actor-header .resource,
+.dark-theme .actor.sheet .stats-container,
+.dark-theme .actor.sheet .stats-container .stats-footer {
+  background-color: var(--system-dark-secondary);
+  border-color: var(--system-dark-accent);
+}
+.dark-theme .actor.sheet .sheet-tabs > [data-tab] .navicon {
+  background-color: var(--system-dark-primary);
+  border: 1px solid var(--system-dark-accent);
+}
+.dark-theme .actor.sheet .sheet-tabs > [data-tab].active .navicon {
+  background: #777777;
+  border: 1px solid var(--system-dark-primary);
+}
+.dark-theme .actor.sheet .resource-value .resource-value-step:not(.active) {
+  background-color: var(--system-dark-tertiary);
+}
+.dark-theme .actor.sheet .resource-value .resource-value-empty {
+  border: 1px solid var(--system-dark-tertiary);
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, #a5a5a5 45%, #a5a5a5 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, #a5a5a5 45%, #a5a5a5 55%, transparent 57%, transparent 100%);
+}
+.dark-theme .actor.sheet .resource-counter .resource-counter-step {
+  border: 1px solid var(--system-dark-accent);
+}
+.dark-theme .actor.sheet .resource-counter .resource-counter-step[data-state="/"] {
+  background: linear-gradient(135deg, transparent 0%, transparent 43%, white 45%, white 55%, transparent 57%, transparent 100%);
+}
+.dark-theme .actor.sheet .resource-counter .resource-counter-step[data-state="x"] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, white 45%, white 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, white 45%, white 55%, transparent 57%, transparent 100%);
+}
+.dark-theme .sheet .window-header {
+  background-color: var(--system-dark-primary);
+}
+.dark-theme .sheet .window-content {
+  background-color: var(--system-dark-primary);
+  color: var(--system-dark-accent);
+  background-blend-mode: hard-light;
+}
+.dark-theme .sheet .window-content input {
+  color: var(--system-dark-accent);
+}
+.dark-theme .actor.sheet.vampire .tabs-container .active.item[data-tab="blood"],
+.dark-theme .actor.sheet.vampire .tabs-container .active .navicon .wod5e-symbol {
+  color: var(--system-dark-accent);
+}
+.dark-theme .actor.sheet.vampire .tabs-container .navicon .wod5e-symbol,
+.dark-theme .actor.sheet.vampire .tabs-container .item[data-tab="blood"] {
+  color: #ff0000;
+}
+.dark-theme .actor.sheet.vampire .tab.disciplines .disciplines-list .discipline,
+.dark-theme .actor.sheet.vampire .tab.disciplines .powers-list .discipline {
+  background-color: var(--system-dark-secondary);
+  border-color: var(--system-dark-accent);
+}
+.dark-theme .actor.sheet.werewolf .tabs-container .active.item[data-tab="wolf"],
+.dark-theme .actor.sheet.werewolf .tabs-container .active .navicon .wod5e-symbol {
+  color: var(--system-dark-accent);
+}
+.dark-theme .actor.sheet.werewolf .tabs-container .navicon .wod5e-symbol,
+.dark-theme .actor.sheet.werewolf .tabs-container .item[data-tab="wolf"] {
+  color: #e97244;
+}
+.dark-theme .actor.sheet.werewolf .tab.gifts-rites .gifts-list .gift,
+.dark-theme .actor.sheet.werewolf .tab.gifts-rites .powers-list .gift {
+  background-color: var(--system-dark-secondary);
+  border-color: var(--system-dark-accent);
+}
+.dark-theme .actor.sheet.hunter .tabs-container .active .navicon .wod5e-symbol {
+  color: var(--system-dark-accent);
+}
+.dark-theme .actor.sheet.hunter .tabs-container .navicon .wod5e-symbol {
+  color: #ff8f00;
+}
+.dark-theme .actor.sheet.hunter .tab.edges .edges-list .edge,
+.dark-theme .actor.sheet.hunter .tab.edges .perks-list .edge {
+  background-color: var(--system-dark-secondary);
+  border-color: var(--system-dark-accent);
+}
+.dark-theme .actor.sheet.hunter .tab.edges .edges-list .edge .content-link,
+.dark-theme .actor.sheet.hunter .tab.edges .perks-list .edge .content-link {
+  color: var(--system-dark-primary);
+}
+.dark-theme prose-mirror button.icon.toggle {
+  color: var(--system-dark-accent);
+  background-color: var(--system-dark-primary);
+}
+.dark-theme #sidebar {
+  background: url(/systems/vtm5e/assets/ui/sidebar_dark.webp) repeat;
+}
+.dark-theme #controls ol.control-tools > li {
+  background: var(--ui-background-dark-texture);
+}
+.dark-theme #navigation #scene-list .scene,
+.dark-theme #navigation #scene-list .scene.view,
+.dark-theme #navigation #scene-list .scene.context,
+.dark-theme #navigation #scene-list .scene.gm,
+.dark-theme #navigation .nav-item,
+.dark-theme #navigation #nav-toggle {
+  background: var(--ui-background-dark-texture);
+}
+.dark-theme #navigation #scene-list .scene.active {
+  background: var(--ui-background-active-texture);
+}
+.dark-theme #hotbar .macro {
+  background: rgba(43, 43, 43, 0.5);
+}
+.dark-theme #hotbar .bar-controls {
+  background: var(--ui-background-dark-texture);
+}
+.dark-theme .app {
+  background: var(--ui-background-dark-texture);
+}
+
+/* Variables */
+:root {
+  --ui-background-hunter-texture: url("/systems/vtm5e/assets/ui/ui_background_hunter_texture.webp");
+}
+.hunter-theme {
+  /* Logo */
+  /* Sheet window Header */
+  /* Sidebar */
+  /* Foundry Controls UI */
+}
+.hunter-theme #logo {
+  content: url(/systems/vtm5e/assets/ui/HtR_Logo.png);
+}
+.hunter-theme .sheet .window-header {
+  background-color: var(--hunter-primary);
+}
+.hunter-theme #sidebar {
+  background: url(/systems/vtm5e/assets/ui/sidebar_hunter.webp) repeat;
+}
+.hunter-theme #controls ol.control-tools > li {
+  background: var(--ui-background-hunter-texture);
+}
+.hunter-theme #navigation #scene-list .scene,
+.hunter-theme #navigation #scene-list .scene.view,
+.hunter-theme #navigation #scene-list .scene.context,
+.hunter-theme #navigation #scene-list .scene.gm,
+.hunter-theme #navigation .nav-item,
+.hunter-theme #navigation #nav-toggle {
+  background: var(--ui-background-hunter-texture);
+}
+.hunter-theme #navigation #scene-list .scene.active {
+  background: var(--ui-background-active-texture);
+}
+.hunter-theme #hotbar .macro {
+  background: rgba(255, 136, 0, 0.5);
+}
+.hunter-theme #hotbar .bar-controls {
+  background: var(--ui-background-hunter-texture);
+}
+.hunter-theme .app {
+  background: var(--ui-background-hunter-texture);
+}
+
+/* Variables */
+:root {
+  --ui-background-vampire-texture: url("/systems/vtm5e/assets/ui/ui_background_vampire_texture.webp");
+}
+.vampire-theme {
+  /* Logo */
+  /* Sheet window Header */
+  /* Sheet Window Content */
+  /* Navbar */
+  /* Resource Counters */
+  /* Actor Sheet */
+  /* Sidebar */
+  /* Foundry Controls UI */
+}
+.vampire-theme #logo {
+  content: url(/systems/vtm5e/assets/ui/VtM_Logo.png);
+}
+.vampire-theme .sheet .window-header {
+  background-color: var(--vampire-primary);
+}
+.vampire-theme .sheet .window-content {
+  background-color: #000000f0;
+  color: #ffffff;
+  background-blend-mode: hard-light;
+}
+.vampire-theme .sheet .window-content input {
+  color: #FFF;
+}
+.vampire-theme .actor.sheet .sheet-tabs > [data-tab] .navicon {
+  background-color: black;
+  border: 1px solid #FFF;
+}
+.vampire-theme .actor.sheet.hunter .tabs-container .active .navicon {
+  color: black;
+}
+.vampire-theme .actor.sheet.hunter .tabs-container .active .navicon .wod5e-symbol {
+  color: black;
+}
+.vampire-theme .resource-value .resource-value-step {
+  background-color: #bdbdbd91;
+}
+.vampire-theme .resource-counter .resource-counter-step {
+  border: 1px solid #FFF;
+}
+.vampire-theme .resource-counter .resource-counter-step[data-state="/"] {
+  background: linear-gradient(135deg, transparent 0%, transparent 43%, white 45%, white 55%, transparent 57%, transparent 100%);
+}
+.vampire-theme .resource-counter .resource-counter-step[data-state="x"] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, white 45%, white 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, white 45%, white 55%, transparent 57%, transparent 100%);
+}
+.vampire-theme .resource-value .resource-value-empty {
+  border: 1px solid #777777;
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, #a5a5a5 45%, #a5a5a5 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, #a5a5a5 45%, #a5a5a5 55%, transparent 57%, transparent 100%);
+}
+.vampire-theme .actor.sheet .actor-header input,
+.vampire-theme .actor.sheet .actor-header .resource,
+.vampire-theme .actor.sheet .stats-container,
+.vampire-theme .actor.sheet .stats-container .stats-footer {
+  background-color: #1d1d1d;
+  border-color: #FFF;
+}
+.vampire-theme #sidebar {
+  background: url(/systems/vtm5e/assets/ui/sidebar_vampire.webp) repeat;
+}
+.vampire-theme #controls ol.control-tools > li {
+  background: var(--ui-background-vampire-texture);
+}
+.vampire-theme #navigation #scene-list .scene,
+.vampire-theme #navigation #scene-list .scene.view,
+.vampire-theme #navigation #scene-list .scene.context,
+.vampire-theme #navigation #scene-list .scene.gm,
+.vampire-theme #navigation .nav-item,
+.vampire-theme #navigation #nav-toggle {
+  background: var(--ui-background-vampire-texture);
+}
+.vampire-theme #navigation #scene-list .scene.active {
+  background: var(--ui-background-active-texture);
+}
+.vampire-theme #hotbar .macro {
+  background: rgba(255, 43, 43, 0.5);
+}
+.vampire-theme #hotbar .bar-controls {
+  background: var(--ui-background-vampire-texture);
+}
+.vampire-theme .app {
+  background: var(--ui-background-vampire-texture);
+}
+
+/* Variables */
+:root {
+  --ui-background-werewolf-texture: url("/systems/vtm5e/assets/ui/ui_background_werewolf_texture.webp");
+}
+.werewolf-theme {
+  /* Logo */
+  /* Sheet window Header */
+  /* Sheet Window Content */
+  /* Navbar */
+  /* Resource Counters */
+  /* Actor Sheet */
+  /* Sidebar */
+  /* Foundry Controls UI */
+}
+.werewolf-theme #logo {
+  content: url(/systems/vtm5e/assets/ui/WtA_Logo.png);
+}
+.werewolf-theme .sheet .window-header {
+  background-color: var(--werewolf-primary);
+}
+.werewolf-theme .sheet .window-content {
+  background-color: #000000f0;
+  color: #FFF;
+  background-blend-mode: hard-light;
+}
+.werewolf-theme .sheet .window-content input {
+  color: #FFF;
+}
+.werewolf-theme .actor.sheet .sheet-tabs > [data-tab] .navicon {
+  background-color: black;
+  border: 1px solid #FFF;
+}
+.werewolf-theme .actor.sheet.hunter .tabs-container .active .navicon {
+  color: black;
+}
+.werewolf-theme .actor.sheet.hunter .tabs-container .active .navicon .wod5e-symbol {
+  color: black;
+}
+.werewolf-theme .resource-value .resource-value-step {
+  background-color: #bdbdbd91;
+}
+.werewolf-theme .resource-counter .resource-counter-step {
+  border: 1px solid #FFF;
+}
+.werewolf-theme .resource-counter .resource-counter-step[data-state="/"] {
+  background: linear-gradient(135deg, transparent 0%, transparent 43%, white 45%, white 55%, transparent 57%, transparent 100%);
+}
+.werewolf-theme .resource-counter .resource-counter-step[data-state="x"] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, white 45%, white 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, white 45%, white 55%, transparent 57%, transparent 100%);
+}
+.werewolf-theme .resource-value .resource-value-empty {
+  border: 1px solid #777777;
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, #a5a5a5 45%, #a5a5a5 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, #a5a5a5 45%, #a5a5a5 55%, transparent 57%, transparent 100%);
+}
+.werewolf-theme .actor.sheet .actor-header input,
+.werewolf-theme .actor.sheet .actor-header .resource,
+.werewolf-theme .actor.sheet .stats-container,
+.werewolf-theme .actor.sheet .stats-container .stats-footer {
+  background-color: #1d1d1d;
+  border-color: #FFF;
+}
+.werewolf-theme #sidebar {
+  background: url(/systems/vtm5e/assets/ui/sidebar_werewolf.webp) repeat;
+}
+.werewolf-theme #controls ol.control-tools > li {
+  background: var(--ui-background-werewolf-texture);
+}
+.werewolf-theme #navigation #scene-list .scene,
+.werewolf-theme #navigation #scene-list .scene.view,
+.werewolf-theme #navigation #scene-list .scene.context,
+.werewolf-theme #navigation #scene-list .scene.gm,
+.werewolf-theme #navigation .nav-item,
+.werewolf-theme #navigation #nav-toggle {
+  background: var(--ui-background-werewolf-texture);
+}
+.werewolf-theme #navigation #scene-list .scene.active {
+  background: var(--ui-background-active-texture);
+}
+.werewolf-theme #hotbar .macro {
+  background: #57340d;
+}
+.werewolf-theme #hotbar .bar-controls {
+  background: var(--ui-background-werewolf-texture);
+}
+.werewolf-theme .app {
+  background: var(--ui-background-werewolf-texture);
+}

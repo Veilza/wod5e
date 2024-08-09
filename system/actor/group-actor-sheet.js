@@ -11,12 +11,11 @@ export class GroupActorSheet extends WoDActor {
   /** @override */
   static get defaultOptions () {
     // Define the base list of CSS classes
-    const classList = ['wod5e', 'sheet', 'actor', 'group', 'group-sheet']
+    const classList = ['group-sheet']
+    classList.push(...super.defaultOptions.classes)
 
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: classList,
-      width: 700,
-      height: 700,
       tabs: [{
         navSelector: '.sheet-tabs',
         contentSelector: '.sheet-body',
@@ -41,20 +40,20 @@ export class GroupActorSheet extends WoDActor {
     // Includes initialization for the CSS classes
     switch (this.actor.system.groupType) {
       case 'cell':
-        this.options.classes.push(...['hunter-sheet'])
+        this.options.classes.push(...['hunter'])
         return 'systems/vtm5e/display/htr/actors/cell-sheet.hbs'
 
       case 'coterie':
-        this.options.classes.push(...['coterie-sheet'])
+        this.options.classes.push(...['vampire'])
         return 'systems/vtm5e/display/vtm/actors/coterie-sheet.hbs'
 
       case 'pack':
-        this.options.classes.push(...['werewolf-sheet'])
+        this.options.classes.push(...['werewolf'])
         return 'systems/vtm5e/display/wta/actors/pack-sheet.hbs'
 
       default:
         console.log('Oops! Something broke...')
-        this.options.classes.push(...['coterie-sheet'])
+        this.options.classes.push(...['mortal'])
         return 'systems/vtm5e/display/vtm/actors/coterie-sheet.hbs'
     }
   }
@@ -90,8 +89,8 @@ export class GroupActorSheet extends WoDActor {
     const data = await super.getData()
     const actor = this.actor
 
-    // Prepare items.
-    this._prepareItems(data)
+    // Prepare items
+    await this._prepareItems(data)
 
     // Show boons on the sheet
     data.hasBoons = this.hasBoons
@@ -125,6 +124,14 @@ export class GroupActorSheet extends WoDActor {
     return data
   }
 
+  /** Prepare item data for the Group actor */
+  async _prepareItems (sheetData) {
+    // Prepare items
+    super._prepareItems(sheetData)
+
+    return sheetData
+  }
+
   /* -------------------------------------------- */
 
   /** @override */
@@ -132,10 +139,13 @@ export class GroupActorSheet extends WoDActor {
     // Activate listeners
     super.activateListeners(html)
 
+    // Handle opening a sheet
     html.find('.open-sheet').click(this._openActorSheet.bind(this))
 
     // Only activate the below listeners for the storyteller
     if (!this.actor.isOwner) return
+
+    // Handle removing an actor
     html.find('.remove-actor').click(this._removeActor.bind(this))
   }
 
@@ -192,6 +202,7 @@ export class GroupActorSheet extends WoDActor {
     await game.actors.render()
   }
 
+  // Function to remove an actor from the group sheet
   async _removeActor (event) {
     event.preventDefault()
 
@@ -235,24 +246,23 @@ export class GroupActorSheet extends WoDActor {
     // Add a new sheet class depending on the type of sheet
     switch (this.actor.system.groupType) {
       case 'cell':
-        sheetElement.removeClass('coterie-sheet werewolf-sheet')
-        sheetElement.addClass('hunter-sheet')
+        sheetElement.removeClass('vampire werewolf')
+        sheetElement.addClass('hunter')
         break
 
       case 'coterie':
-        sheetElement.removeClass('hunter-sheet werewolf-sheet')
-        sheetElement.addClass('coterie-sheet')
+        sheetElement.removeClass('hunter werewolf')
+        sheetElement.addClass('vampire')
         break
 
       case 'pack':
-        sheetElement.removeClass('hunter-sheet coterie-sheet')
-        sheetElement.addClass('werewolf-sheet')
+        sheetElement.removeClass('hunter vampire')
+        sheetElement.addClass('werewolf')
         break
 
       default:
-        console.log('Oops! Something broke...')
-        sheetElement.removeClass('hunter-sheet werewolf-sheet')
-        sheetElement.addClass('coterie-sheet')
+        sheetElement.removeClass('hunter werewolf vampire')
+        sheetElement.addClass('mortal')
     }
   }
 }

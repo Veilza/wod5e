@@ -6,7 +6,7 @@
     <div class="were-form-title flexcol flex-center">
       <label class="were-form-nickname">{{localize form.nickname}}</label>
     </div>
-    <div class="resource flex-group-center{{#ifeq ../actor.system.activeForm id}} form-active{{/ifeq}}">
+    <div class="form resource flex-group-center{{#ifeq ../actor.system.activeForm id}} form-active{{/ifeq}}">
       {{#ifeq ../actor.system.activeForm id}}
       <button class="werewolf-button active">{{localize "WOD5E.WTA.Active"}}</button>
       {{else}}

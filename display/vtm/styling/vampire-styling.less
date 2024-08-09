@@ -1,0 +1,246 @@
+:root {
+  --vampire-primary: #650202;
+  --vampire-secondary: #d84343;
+  --vampire-tertiary: #f51f1f;
+  --coterie-group-header: rgb(121 8 19 / 80%);
+}
+
+/* Define splat-specific colours for the WOD5E Symbols */
+.wod5e .wod5e-symbol.vampire {
+  color: var(--vampire-primary);
+}
+
+/* Vampire Actor Sheet */
+.actor.sheet.vampire {
+  .actor-header {
+    border-bottom: 2px solid var(--vampire-primary);
+  }
+
+  .profile-img,
+  .actor-header input,
+  .actor-header .resource {
+    border: 1px solid var(--vampire-primary);
+  }
+
+  .sheet-banner {
+    background-color: var(--vampire-primary);
+    color: #FFF;
+  }
+
+  .tabs-container {
+    background-color: var(--vampire-secondary);
+
+    .navicon .wod5e-symbol,
+    .item[data-tab="blood"] {
+      color: var(--vampire-primary);
+    }
+
+    .active .navicon {
+      background-color: var(--vampire-primary);
+      color: #FFF;
+
+      .wod5e-symbol {
+        color: #FFF;
+      }
+    }
+  }
+
+  .lock-btn {
+    background-color: var(--vampire-tertiary);
+    background-blend-mode: luminosity;
+  }
+
+  .item-image {
+    flex-grow: 0;
+
+    img {
+      background: var(--ui-background-vampire-texture);
+    }
+  }
+
+  .tab.disciplines {
+    .disciplines-list .discipline,
+    .powers-list .discipline {
+      display: flex;
+      flex-flow: column;
+      background-color: #ededec;
+      border: 2px solid #1b1b1b;
+      margin: 5px;
+      padding: 5px;
+    }
+
+    .disciplines-list {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+      margin: 0px 10px 10px 10px;
+
+      .item-header {
+        border-bottom: 1px solid black;
+      }
+
+      .item-controls {
+        text-align: right;
+        padding: 5px;
+      }
+
+      .controls {
+        border-bottom: 1px solid black;
+      }
+
+      .item-name {
+        text-wrap: nowrap;
+      }
+
+      .discipline-description {
+        max-height: 100px;
+
+        prose-mirror {
+          .editor-menu button:hover {
+            background-color: var(--vampire-primary);
+          }
+
+          li.text {
+            display: none;
+          }
+
+          .editor-content {
+            scrollbar-color: var(--vampire-secondary) var(--color-scrollbar-track);
+          }
+        }
+      }
+
+      .discipline-description {
+        margin-bottom: 5px;
+      }
+    }
+
+    .powers-list {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 400px;
+
+      .item-name {
+        text-wrap: nowrap;
+      }
+
+      .item-description {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .power {
+        .item-image {
+          flex-grow: 0;
+        }
+
+        .item-name {
+          text-align: left;
+          padding: 3px;
+          margin-left: 10px;
+          text-overflow: ellipsis;
+          overflow-x: hidden;
+        }
+
+        .item-controls {
+          text-align: right;
+          display: contents;
+
+          .item-control {
+            margin-left: 3px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* All Sheets with the Vampire styling, including itemsheets */
+.sheet.vampire {
+  box-shadow: 0 0 10px var(--vampire-primary);
+
+  .window-header {
+    background: var(--vampire-primary);
+  }
+
+  .window-content {
+    scrollbar-color: var(--vampire-secondary) var(--vampire-primary);
+  }
+
+  .resource-value .resource-value-step.active,
+  .resource-value-static .resource-value-static-step.active,
+  .resource-counter .resource-counter-step[data-state="-"] {
+    background-color: var(--vampire-tertiary);
+  }
+
+  button.rollable,
+  .vampire-button {
+    background-color: var(--vampire-primary);
+    background-blend-mode: luminosity;
+    color: #CCC;
+  }
+
+  .rouse-button {
+    max-width: 35px;
+    max-height: 35px;
+
+    .wod5e-symbol {
+      vertical-align: middle;
+    }
+  }
+}
+
+.vampire.sheet.window-app {
+  .window-resizable-handle {
+    border-top: 3px double var(--vampire-primary);
+    border-left: 3px double var(--vampire-primary);
+    border-bottom: 1px solid var(--vampire-primary);
+    border-right: 1px solid var(--vampire-primary);
+    background-color: var(--vampire-secondary);
+    color: #e9e9e9;
+  }
+}
+
+/* Group Sheets */
+.group-header.coterie {
+  background-color: var(--coterie-group-header) !important;
+}
+
+/* Dialogs Windows */
+.vampire-dialog.window-app {
+  border: 4px solid var(--vampire-primary);
+
+  .window-header {
+    background: var(--vampire-primary);
+    border-bottom: 4px double #fff;
+  }
+
+  .window-content .sheet-body .tab > .resource-label,
+  .items-list .item-header,
+  .items-list .spc-item-header,
+  .spc-pool-header,
+  .actor-header .profile-img-zone h1 {
+    color: var(--vampire-primary);
+    border-color: var(--vampire-primary);
+  }
+
+  .dialog-contents .dice-group-header {
+    background-color: var(--vampire-primary);
+  }
+
+  input,
+  select {
+    border: 1px solid var(--vampire-primary);
+  }
+
+  .base-dice-group {
+    border: 1px solid var(--vampire-secondary);
+  }
+}
+
+.vampire-font-headers .vampire-button {
+  font-family: "vampireRevised", "sans-serif";
+}

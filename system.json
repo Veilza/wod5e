@@ -2,9 +2,9 @@
   "id": "vtm5e",
   "title": "World of Darkness 5e",
   "description": "World of Darkness 5e system for Foundry VTT",
-  "version": "4.5.3",
+  "version": "5.0.0-prerelease",
   "compatibility": {
-    "minimum": "11",
+    "minimum": "12",
     "verified": "12.330",
     "maximum": ""
   },
@@ -33,11 +33,7 @@
     "system/main.js"
   ],
   "styles": [
-    "display/shared/styling/wod5e.css",
-    "display/shared/styling/themes/dark-theme.css",
-    "display/vtm/styling/vampire-styling.css",
-    "display/htr/styling/hunter-styling.css",
-    "display/wta/styling/werewolf-styling.css"
+    "display/wod5e-styling.css"
   ],
   "languages": [
     {
@@ -256,8 +252,8 @@
   "url": "https://github.com/WoD5E-Developers/wod5e",
   "bugs": "https://github.com/WoD5E-Developers/wod5e/issues",
   "background": "systems/vtm5e/assets/images/wodcity.jpg",
-  "manifest": "https://github.com/WoD5E-Developers/wod5e/releases/download/4.5.3/system.json",
-  "download": "https://github.com/WoD5E-Developers/wod5e/releases/download/4.5.3/vtm5e.zip",
+  "manifest": "https://github.com/WoD5E-Developers/wod5e/releases/download/5.0.0-prerelease/system.json",
+  "download": "https://github.com/WoD5E-Developers/wod5e/releases/download/5.0.0-prerelease/vtm5e.zip",
   "flags": {
     "hotReload": {
       "extensions": [

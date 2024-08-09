@@ -1,4 +1,4 @@
-/* global game, foundry, renderTemplate, ChatMessage, WOD5E */
+/* global game, foundry, renderTemplate, ChatMessage, TextEditor, WOD5E, Dialog */
 
 import { WOD5eDice } from '../scripts/system-rolls.js'
 import { getActiveBonuses } from '../scripts/rolls/situational-modifiers.js'
@@ -13,18 +13,12 @@ export class GhoulActorSheet extends MortalActorSheet {
   /** @override */
   static get defaultOptions () {
     // Define the base list of CSS classes
-    const classList = ['wod5e', 'sheet', 'actor', 'ghoul', 'ghoul-sheet']
+    const classList = ['ghoul-sheet', 'vampire']
+    classList.push(...super.defaultOptions.classes)
 
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: classList,
-      template: 'systems/vtm5e/display/vtm/actors/ghoul-sheet.hbs',
-      width: 940,
-      height: 700,
-      tabs: [{
-        navSelector: '.sheet-tabs',
-        contentSelector: '.sheet-body',
-        initial: 'stats'
-      }]
+      template: 'systems/vtm5e/display/vtm/actors/ghoul-sheet.hbs'
     })
   }
 
@@ -41,79 +35,70 @@ export class GhoulActorSheet extends MortalActorSheet {
     // Top-level variables
     const data = await super.getData()
 
-    // Prepare items.
+    // Prepare items
     await this._prepareItems(data)
 
-    for (const disciplineType in data.actor.system.disciplines) {
-      // Localize each gift
-      data.actor.system.disciplines[disciplineType].label = await WOD5E.api.generateLabelAndLocalize({ string: disciplineType })
-    }
+    // Prepare discipline data
+    data.actor.system.disciplines = await this._prepareDisciplineData(data)
 
     return data
   }
 
-  /**
-     * Organize and classify Disciplines for Vampire & Ghoul sheets.
-     *
-     * @param {Object} actorData The actor to prepare.
-     * @return {undefined}
-     * @override
-     */
+  /** Prepare item data for the Ghoul/Vampire actor */
   async _prepareItems (sheetData) {
     // Prepare items
     super._prepareItems(sheetData)
 
     // Top-level variables
-    const actorData = sheetData.actor
     const actor = this.actor
 
-    // Variables yet to be defined
-    const disciplines = {
-      animalism: [],
-      auspex: [],
-      celerity: [],
-      dominate: [],
-      fortitude: [],
-      obfuscate: [],
-      potence: [],
-      presence: [],
-      protean: [],
-      sorcery: [],
-      oblivion: [],
-      rituals: [],
-      ceremonies: [],
-      alchemy: []
+    // Secondary variables
+    const disciplines = actor.system.disciplines
+
+    for (const disciplineType in disciplines) {
+      // Localize the discipline name
+      disciplines[disciplineType].label = WOD5E.api.generateLabelAndLocalize({ string: disciplineType, type: 'discipline' })
+
+      // Wipe old discipline powers so they doesn't duplicate
+      disciplines[disciplineType].powers = []
     }
 
     // Iterate through items, allocating to containers
     for (const i of sheetData.items) {
       // Make sure the item is a power and has a discipline
-      if (i.type === 'power' && i.system.discipline) {
+      if (i.type === 'power') {
         // Append to disciplines list
-        disciplines[i.system.discipline].push(i)
-
-        // If the discipline isn't already visible, make it visible
-        if (!actor.system.disciplines[i.system.discipline].visible) {
-          actor.update({ [`system.disciplines.${i.system.discipline}.visible`]: true })
-        }
+        disciplines[i.system.discipline].powers.push(i)
       }
     }
+  }
 
-    // Sort the discipline containers by the level of the power instead of by creation date
-    for (const discipline in disciplines) {
-      disciplines[discipline] = disciplines[discipline].sort(function (power1, power2) {
-        // If the levels are the same, sort alphabetically instead
-        if (power1.system.level === power2.system.level) {
-          return power1.name.localeCompare(power2.name)
-        }
+  // Handle discipline data so we can display it on the actor sheet
+  async _prepareDisciplineData (sheetData) {
+    const disciplines = sheetData.actor.system.disciplines
 
-        // Sort by level
-        return power1.system.level - power2.system.level
-      })
+    for (const disciplineType in disciplines) {
+      if (disciplines[disciplineType].powers.length > 0) {
+        // If there are any discipline powers in the list, make them visible
+        if (!disciplines[disciplineType].visible) disciplines[disciplineType].visible = true
+
+        // Sort the discipline containers by the level of the power instead of by creation date
+        disciplines[disciplineType].powers = disciplines[disciplineType].powers.sort(function (power1, power2) {
+          // If the levels are the same, sort alphabetically instead
+          if (power1.system.level === power2.system.level) {
+            return power1.name.localeCompare(power2.name)
+          }
+
+          // Sort by level
+          return power1.system.level - power2.system.level
+        })
+      }
+
+      // Enrich discipline description
+      disciplines[disciplineType].enrichedDescription = await TextEditor.enrichHTML(disciplines[disciplineType].description)
     }
 
-    // Assign and return the disciplines list
-    actorData.system.disciplines_list = disciplines
+    return disciplines
   }
 
   /* -------------------------------------------- */
@@ -129,6 +114,9 @@ export class GhoulActorSheet extends MortalActorSheet {
     // Top-level variables
     const actor = this.actor
 
+    // Add a new discipline to the sheet
+    html.find('.add-discipline').click(this._onAddDiscipline.bind(this))
+
     // Make Discipline hidden
     html.find('.discipline-delete').click(async ev => {
       const data = $(ev.currentTarget)[0].dataset
@@ -141,7 +129,7 @@ export class GhoulActorSheet extends MortalActorSheet {
       const discipline = actor.system.disciplines[data.discipline]
 
       renderTemplate('systems/vtm5e/display/ui/chat/chat-message.hbs', {
-        name: game.i18n.localize(discipline.name),
+        name: game.i18n.localize(discipline.label),
         img: 'icons/svg/dice-target.svg',
         description: discipline.description
       }).then(html => {
@@ -207,6 +195,65 @@ export class GhoulActorSheet extends MortalActorSheet {
 
     // Rollable Vampire/Ghouls powers
     html.find('.power-rollable').click(this._onVampireRoll.bind(this))
+  }
+
+  /** Handle adding a new discipline to the sheet */
+  async _onAddDiscipline (event) {
+    event.preventDefault()
+
+    // Top-level variables
+    const actor = this.actor
+
+    // Secondary variables
+    const selectLabel = game.i18n.localize('WOD5E.VTM.SelectDiscipline')
+    const itemOptions = WOD5E.Disciplines.getList()
+
+    // Variables yet to be defined
+    let options = []
+    let disciplineSelected
+
+    // Prompt a dialog to determine which edge we're adding
+    // Build the options for the select dropdown
+    for (const [key, value] of Object.entries(itemOptions)) {
+      options += `<option value="${key}">${value.displayName}</option>`
+    }
+
+    // Template for the dialog form
+    const template = `
+      <form>
+        <div class="form-group">
+          <label>${selectLabel}</label>
+          <select id="disciplineSelect">${options}</select>
+        </div>
+      </form>`
+
+    // Define dialog buttons
+    const buttons = {
+      submit: {
+        icon: '<i class="fas fa-check"></i>',
+        label: game.i18n.localize('WOD5E.Add'),
+        callback: async (html) => {
+          disciplineSelected = html.find('#disciplineSelect')[0].value
+
+          // Make the edge visible
+          await actor.update({ [`system.disciplines.${disciplineSelected}.visible`]: true })
+        }
+      },
+      cancel: {
+        icon: '<i class="fas fa-times"></i>',
+        label: game.i18n.localize('WOD5E.Cancel')
+      }
+    }
+
+    // Display the dialog
+    new Dialog({
+      title: game.i18n.localize('WOD5E.Add'),
+      content: template,
+      buttons,
+      default: 'submit'
+    }, {
+      classes: ['wod5e', 'vampire-dialog', 'vampire-sheet']
+    }).render(true)
   }
 
   async _onVampireRoll (event) {

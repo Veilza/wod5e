@@ -1,0 +1,21 @@
+<div class="tab flexrow" data-group="primary" data-tab="stats">
+  <div class="resource grid grid-2col flexrow">
+    <div class="flexcol">
+      {{> "systems/vtm5e/display/shared/actors/parts/spc/standard-dice-pools.hbs"}}
+
+      {{> "systems/vtm5e/display/shared/actors/parts/spc/exceptional-dice-pools.hbs"}}
+    </div>
+
+    {{#ifeq actor.system.gamesystem 'vampire'}}
+      {{> "systems/vtm5e/display/shared/actors/parts/spc/spc-disciplines.hbs"}}
+    {{/ifeq}}
+
+    {{#ifeq actor.system.gamesystem 'werewolf'}}
+      {{> "systems/vtm5e/display/shared/actors/parts/spc/spc-gifts.hbs"}}
+    {{/ifeq}}
+
+    {{#ifeq actor.system.gamesystem 'hunter'}}
+      {{> "systems/vtm5e/display/shared/actors/parts/spc/spc-edges.hbs"}}
+    {{/ifeq}}
+  </div>
+</div>

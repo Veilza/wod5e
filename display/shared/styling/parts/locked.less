@@ -1,0 +1,32 @@
+/* wod5e.css */
+.locked .item-edit,
+.locked .item-create,
+.locked .item-delete,
+.locked .item-edit,
+.locked .edit-skill,
+.locked .add-edge,
+.locked .add-edge-pool,
+.locked .add-discipline,
+.locked .discipline-delete,
+.locked .add-gift,
+/* Resource counters */
+.locked .resource-plus,
+.locked .resource-minus,
+.locked .resource-value-empty:not(.hunger-value, .rage-value),
+/* SPC Sheet */
+.locked a.item-control.exceptionalskill-create,
+.locked .exceptionalskill-delete,
+.locked .power-create,
+.locked .power-delete,
+/* Group Sheet */
+.group-sheet .locked .remove-actor {
+  display: none;
+}
+
+/* Set resource counters to use the default cursor */
+.locked .resource-value-empty:not(.hunger-value, .rage-value),
+.locked .resource-value-step:not(.hunger-value, .rage-value),
+.locked .resource-plus,
+.locked .resource-minus {
+  cursor: default;
+}

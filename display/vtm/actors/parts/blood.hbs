@@ -1,14 +1,14 @@
 <div class="tab blood" data-group="primary" data-tab="blood">
     <div class="resource flexrow grid grid-3col">
-        <div class="flex-group-center no-border">
+        <div class="flex-group-center">
             <label class="resource-label">{{localize "WOD5E.VTM.Sire"}}</label>
             <input type="text" name="system.headers.sire" value="{{actor.system.headers.sire}}" placeholder="{{localize 'WOD5E.VTM.Sire'}}" />
         </div>
-        <div class="flex-group-center no-border">
+        <div class="flex-group-center">
             <label class="resource-label">{{localize "WOD5E.VTM.Generation"}}</label>
             <input type="text" name="system.headers.generation" value="{{actor.system.headers.generation}}" placeholder="{{localize 'WOD5E.VTM.Generation'}}" />
         </div>
-        <div class="flex-group-center no-border">
+        <div class="flex-group-center">
             <label class="resource-label">{{localize "WOD5E.VTM.BloodResonance"}}</label>
             <input type="text" name="system.blood.resonance" value="{{actor.system.blood.resonance}}" placeholder="{{localize 'WOD5E.VTM.BloodResonance'}}" />
         </div>
@@ -23,7 +23,12 @@
                 {{/numLoop}}
             </div>
         </div>
-        {{> "systems/vtm5e/display/vtm/actors/parts/humanity.hbs"}}
+        <div class="flex-group-center">
+            <label for="actor.system.humanity.value" class="resource-label system-rollable remorse-roll" title="{{localize 'WOD5E.VTM.RollRemorse'}}">
+                {{localize "WOD5E.VTM.Humanity"}}
+            </label>
+            {{> "systems/vtm5e/display/vtm/actors/parts/humanity.hbs"}}
+        </div>
     </div>
     <div class="resource flexrow grid grid-2col">
         <div class="flex-group-center">
@@ -55,7 +60,9 @@
                 <label class="resource-label">{{localize "WOD5E.VTM.ClanBane"}}</label>
             </div>
             <div class="description-content">
-                {{editor enrichedBane target="system.headers.bane" button=true editable=editable}}
+                <prose-mirror name="system.headers.bane" data-document-u-u-i-d="{{../actor.uuid}}" value="{{actor.system.headers.bane}}" toggled="true">
+                    {{{enrichedBane}}}
+                </prose-mirror>
             </div>
         </div>
     </div>

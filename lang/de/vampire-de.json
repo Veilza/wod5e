@@ -20,7 +20,7 @@
       "HungerDice": "Hunger-Würfel",
 
       "Humanity": "Menschlichkeit",
-      "Predator": "Jagdverhalten",
+      "PredatorType": "Jagdverhalten",
       "Hunger": "Hunger",
       "HungerFull1": "Hunger maximal",
       "HungerFull2": "Hunger kann nicht weiter steigen.",

@@ -1,0 +1,11 @@
+<div class="header-profile">
+    <div class="header-profile-img">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" alt="{{localize 'WOD5E.ActorImage'}}"/>
+    </div>
+    <div class="flexrow">
+        <h1 class="charname">
+            <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'WOD5E.Name'}}" />
+        </h1>
+        {{> "systems/vtm5e/display/shared/actors/parts/lock-button.hbs"}}
+    </div>
+</div>

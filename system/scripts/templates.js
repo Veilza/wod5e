@@ -9,17 +9,20 @@ export const preloadHandlebarsTemplates = async function () {
   // Define template paths to load
   const templatePaths = [
     // Base Sheet Partials
+    'systems/vtm5e/display/shared/actors/parts/lock-button.hbs',
+    'systems/vtm5e/display/shared/actors/parts/header-profile.hbs',
     'systems/vtm5e/display/shared/actors/parts/biography.hbs',
     'systems/vtm5e/display/shared/actors/parts/exp.hbs',
     'systems/vtm5e/display/shared/actors/parts/features.hbs',
     'systems/vtm5e/display/shared/actors/parts/health.hbs',
-    'systems/vtm5e/display/shared/actors/parts/profile-img.hbs',
     'systems/vtm5e/display/shared/actors/parts/other.hbs',
     'systems/vtm5e/display/shared/actors/parts/stats.hbs',
     'systems/vtm5e/display/shared/actors/parts/willpower.hbs',
     'systems/vtm5e/display/shared/actors/parts/notes.hbs',
     'systems/vtm5e/display/shared/actors/parts/skill-dialog.hbs',
     'systems/vtm5e/display/shared/actors/parts/specialty-display.hbs',
+    'systems/vtm5e/display/shared/actors/parts/navbar.hbs',
+    'systems/vtm5e/display/shared/actors/parts/actor-settings.hbs',
 
     // Hunter Sheet Partials
     'systems/vtm5e/display/htr/actors/parts/danger.hbs',
@@ -46,6 +49,7 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/vtm5e/display/wta/actors/parts/forms.hbs',
 
     // SPC Sheet Partials
+    'systems/vtm5e/display/shared/actors/parts/spc/stats.hbs',
     'systems/vtm5e/display/shared/actors/parts/spc/standard-dice-pools.hbs',
     'systems/vtm5e/display/shared/actors/parts/spc/exceptional-dice-pools.hbs',
     'systems/vtm5e/display/shared/actors/parts/spc/generaldifficulty.hbs',

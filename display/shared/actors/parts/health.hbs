@@ -1,25 +1,29 @@
-<div class="resource flex-group-center health">
-    <div class="flexrow">
-        <i class="fas fa-minus resource-control resource-minus" data-resource="health" data-action="minus"></i>
-        <label for="actor.system.health" class="resource-label">{{localize "WOD5E.Health"}}</label>
-        <i class="fas fa-plus resource-control resource-plus" data-resource="health" data-action="plus"></i>
+<div class="flexcol field-section">
+    <div class="flexcol">
+        <label class="field-header flexrow resource-label">
+            <i class="fas fa-minus resource-control resource-minus" data-resource="health" data-action="minus"></i>
+            {{localize "WOD5E.Health"}}
+            <i class="fas fa-plus resource-control resource-plus" data-resource="health" data-action="plus"></i>
+        </label>
     </div>
-    <div class="resource-content flexcol flex-center flex-between">
-        <div class="resource-counter editable" data-states="/:superficial,x:aggravated" data-max="{{actor.system.health.max}}"
-            data-superficial="{{actor.system.health.superficial}}" data-aggravated="{{actor.system.health.aggravated}}"
-            data-name="system.health">
-            {{#numLoop actor.system.health.max}}
-                <span class="resource-counter-step" data-index="{{this}}" data-state=""></span>
-            {{/numLoop}}
-        </div>
-        {{#ifeq actor.system.activeForm "crinos"}}
-            <div class="resource-counter editable crinos-health" data-states="/:superficial,x:aggravated" data-max="{{actor.system.crinosHealth.max}}"
-                data-superficial="{{actor.system.crinosHealth.superficial}}" data-aggravated="{{actor.system.crinosHealth.aggravated}}"
-                data-name="system.crinosHealth">
-                {{#numLoop actor.system.crinosHealth.max}}
+    <div class="resource flex-group-center health">
+        <div class="resource-content flexcol flex-center flex-between">
+            <div class="resource-counter editable" data-states="/:superficial,x:aggravated" data-max="{{actor.system.health.max}}"
+                data-superficial="{{actor.system.health.superficial}}" data-aggravated="{{actor.system.health.aggravated}}"
+                data-name="system.health">
+                {{#numLoop actor.system.health.max}}
                     <span class="resource-counter-step" data-index="{{this}}" data-state=""></span>
                 {{/numLoop}}
             </div>
-        {{/ifeq}}
+            {{#ifeq actor.system.activeForm "crinos"}}
+                <div class="resource-counter editable crinos-health" data-states="/:superficial,x:aggravated" data-max="{{actor.system.crinosHealth.max}}"
+                    data-superficial="{{actor.system.crinosHealth.superficial}}" data-aggravated="{{actor.system.crinosHealth.aggravated}}"
+                    data-name="system.crinosHealth">
+                    {{#numLoop actor.system.crinosHealth.max}}
+                        <span class="resource-counter-step" data-index="{{this}}" data-state=""></span>
+                    {{/numLoop}}
+                </div>
+            {{/ifeq}}
+        </div>
     </div>
 </div>

@@ -1,0 +1,124 @@
+:root {
+  --mortal-primary: #302d5bf0;
+  --mortal-secondary: #706ca5f0;
+}
+
+/* Define splat-specific colours for the WOD5E Symbols */
+.wod5e-symbol.mortal {
+  color: var(--mortal-primary);
+}
+
+/* All Mortal-styled Sheets, Including Itemsheets */
+.sheet.mortal {
+  box-shadow: 0 0 10px var(--mortal-primary);
+
+  .window-header {
+    background: var(--mortal-primary);
+  }
+
+  .window-content {
+    scrollbar-color: var(--mortal-secondary) var(--mortal-primary);
+  }
+
+  .window-app .window-resizable-handle {
+    border-top: 3px double var(--mortal-primary);
+    border-left: 3px double var(--mortal-primary);
+    border-bottom: 1px solid var(--mortal-primary);
+    border-right: 1px solid var(--mortal-primary);
+    background-color: var(--mortal-secondary);
+    color: #2b2b2b;
+  }
+
+  /* Resource counters */
+  .resource-value .resource-value-step.active,
+  .resource-value-static .resource-value-static-step.active,
+  .resource-counter .resource-counter-step[data-state="-"] {
+    background-color: var(--mortal-primary);
+  }
+}
+
+/* Dialog Windows */
+.mortal-dialog {
+  .window-app {
+    border: 4px solid var(--mortal-primary);
+
+    .window-header {
+      border-bottom: 4px double #fff;
+    }
+  }
+
+  .window-header {
+    background: var(--mortal-primary);
+  }
+
+  .window-content .sheet-body .tab > .resource-label,
+  .items-list .item-header,
+  .items-list .spc-item-header,
+  .spc-pool-header,
+  .actor-header .profile-img-zone h1 {
+    color: var(--mortal-primary);
+    border-color: var(--mortal-primary);
+  }
+  
+  .dialog-contents .dice-group-header {
+    background-color: var(--mortal-primary);
+  }
+  
+  input,
+  select {
+    border: 1px solid var(--mortal-primary);
+  }
+  
+  .base-dice-group {
+    border: 1px solid var(--mortal-secondary);
+  }
+}
+
+/* Mortal Actor Sheet */
+.actor.sheet.mortal {
+  .actor-header {
+    border-bottom: 2px solid var(--mortal-primary);
+  }
+
+  .profile-img,
+  .actor-header input,
+  .actor-header .resource {
+    border: 1px solid var(--mortal-primary);
+  }
+  
+  .sheet-banner {
+    background-color: var(--mortal-primary);
+    color: #ffffff;
+  }
+  
+  .tabs-container {
+    background-color: var(--mortal-secondary);
+  }
+  
+  .tabs-container .active .navicon {
+    background-color: var(--mortal-primary);
+    color: #FFF;
+  }
+  
+  .tabs-container .active .navicon .wod5e-symbol {
+    color: #FFF;
+  }
+  
+  .lock-btn {
+    background: var(--ui-background-texture);
+  }
+  
+  .sheet-banner .sheet-label {
+    color: #CCC;
+  }
+
+  .actor-header input,
+  .actor-header .resource {
+    border: 1px solid var(--mortal-primary);
+  }
+}
+
+/* Group Sheets */
+.group-header.cell {
+  background-color: rgb(204 109 40 / 80%) !important;
+}

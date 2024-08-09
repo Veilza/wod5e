@@ -35,7 +35,9 @@
     <section class="sheet-body">
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor enrichedDescription target="system.description" button=true editable=editable}}
+            <prose-mirror name="system.description" data-document-u-u-i-d="{{../actor.uuid}}" value="{{item.system.description}}" toggled="true">
+                {{{enrichedDescription}}}
+            </prose-mirror>
         </div>
 
         {{!-- Attributes Tab --}}
@@ -47,7 +49,7 @@
                 <select name="system.dice1" data-type="String">
                     {{#select item.system.dice1}}
                     {{> "systems/vtm5e/display/shared/items/parts/attributes.hbs"}}
-                    <option value="discipline">{{generateLocalizedLabel item.system.discipline}}</option>
+                    <option value="discipline">{{generateLocalizedLabel item.system.discipline 'disciplines'}}</option>
                     {{/select}}
                 </select>
                 <label class="resource-label">+</label>
@@ -67,7 +69,7 @@
                     <select name="system.dice2" data-type="String">
                         {{#select item.system.dice2}}
                         {{> "systems/vtm5e/display/shared/items/parts/attributes.hbs"}}
-                        <option value="discipline">{{generateLocalizedLabel item.system.discipline}}</option>
+                        <option value="discipline">{{generateLocalizedLabel item.system.discipline 'disciplines'}}</option>
                         {{/select}}
                     </select>
                 {{/if}}

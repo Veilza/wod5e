@@ -16,7 +16,7 @@
       "VampireDice": "Dados de Vampiro",
       "HungerDice": "Dados de Fome",
       "Humanity": "Humanidade",
-      "Predator": "Predador",
+      "PredatorType": "Predador",
       "Hunger": "Fome",
       "HungerFull1": "Fome máxima",
       "HungerFull2": "Já na fome máxima, não pode aumentar ainda mais.",

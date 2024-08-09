@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amarante&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+
+/* Variables */
+:root {
+  --system-primary: #302d5bf0;
+  --system-border: #d2dfebf0;
+  --system-shadow: #827dcaf0;
+  --ui-background-texture: url("/systems/vtm5e/assets/ui/ui_background_texture.webp");
+  --ui-background-active-texture: url("/systems/vtm5e/assets/ui/ui_background_active_texture.webp");
+}
+
+/* Fonts */
+@font-face {
+  font-family: "cormorantLight";
+  src: url("/systems/vtm5e/assets/fonts/Cormorant-Light-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "wod5eSymbols";
+  src: url("/systems/vtm5e/assets/fonts/wod5e-symbols.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "vampireRevised";
+  src: url("/systems/vtm5e/assets/fonts/vampire-revised.ttf") format("truetype");
+}
+
+/* Define the class that will be used for WOD5E symbols */
+.wod5e-symbol {
+  font-family: "wod5eSymbols", "sans-serif";
+  font-size: 16pt;
+}
+
+/* Application window Header */
+.application .window-header {
+  background: var(--system-primary);
+  flex: 0 0 25px;
+  line-height: 20px;
+  padding-top: 2px;
+}
+
+.window-app .window-header {
+  flex: 0 0 25px;
+  line-height: 20px;
+  padding-top: 2px;
+}
+
+/* Sheet Window Content */
+.sheet .window-content {
+  box-shadow: 0 0 5px var(--system-primary);
+}
+
+/* Top-left Logo */
+#logo {
+  content: url(/systems/vtm5e/assets/ui/WoD_Logo.webp);
+  width: auto;
+}
+
+/* Adjust the UI top offset to compensate for the bigger logo */
+#ui-top.offset {
+  margin-left: 15px;
+}
+
+/* Hide the color scheme option in core Foundry settings
+* because WOD5E defines its own for users to use */
+#client-settings .form-group[data-setting-id="core.colorScheme"] {
+  display: none;
+}
+
+/* Pause */
+#pause {
+  background: none;
+
+  img {
+    content: url(/systems/vtm5e/assets/ui/Pause.webp);
+    --fa-animation-duration: 0s;
+  }
+
+  figcaption {
+    margin-top: 55px;
+    color: #000;
+    font-weight: bold;
+  }
+}
+
+/* Only use this font with the .vampire-font-headers class enabled */
+.vampire-font-headers #pause figcaption {
+  font-family: "vampireRevised", "sans-serif";
+}
+
+prose-mirror {
+  .editor-menu {
+    background: #333;
+    height: 30px;
+    padding: 2px;
+    border-radius: 0;
+    
+    button {
+      color: #CCC;
+    }
+  }
+}
+
+.prosemirror menu .pm-dropdown {
+  background: transparent;
+}

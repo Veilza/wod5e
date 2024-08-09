@@ -1,0 +1,131 @@
+.dialog-contents {
+  .dice-group-header {
+    border-bottom: 0;
+    font-weight: bold;
+    color: #e5e5e5;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .base-dice-group {
+    border-top: 0;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+  
+  .base-dice-group .basic-dice,
+  .base-dice-group .advanced-dice,
+  .dice-group-header label {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  input {
+    border-radius: 0;
+  }
+  
+  .dice-input input {
+    max-width: 50px;
+  }
+  
+  .dice-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .dice-input img {
+    background-color: #000;
+  }
+  
+  .dialog-control {
+    margin-top: 5px;
+  }
+  
+  .dialog-control:hover,
+  .dialog-control:focus {
+      color: #000;
+      cursor: pointer;
+  }
+  
+  .situational-modifiers {
+    position: absolute;
+    display: inline-block;
+    width: 250px;
+    top: 0;
+    left: 400px;
+    background-color: #faf5ed;
+    box-shadow: 0 0 10px var(--color-shadow-dark);
+    border-width: 3px;
+  }
+  
+  .situational-modifiers .list-title {
+    font-weight: bold;
+  }
+  
+  .custom-modifiers .mod-delete {
+    margin: 5px;
+  }
+  
+  .custom-modifiers .mod-label {
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .custom-modifiers .mod-value {
+    max-width: 30px;
+    margin-right: 45px;
+  }
+  
+  .situational-modifiers .mod-header {
+    font-weight: bold;
+  }
+  
+  .selectors-group {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+  
+  .selectors-group .primary-selector {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .selectors-group .selector-title {
+    font-size: 13pt;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  .selectors-group .middle {
+    font-size: 20pt;
+  }
+  
+  .selectors-group .selector-title {
+    margin: auto;
+  }
+  
+  .secondary-selector {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+  .secondary-selector .selector-title {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+.selector-content {
+  margin: auto;
+}
+
+.dialog-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0;
+}

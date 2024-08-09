@@ -16,7 +16,7 @@
       "VampireDice": "Dados de Vampiro",
       "HungerDice": "Dados de Ansia",
       "Humanity": "Humanidad",
-      "Predator": "Depredador",
+      "PredatorType": "Depredador",
       "Hunger": "Ansia",
       "HungerFull1": "Ansia llena",
       "HungerFull2": "El registro de ansia está lleno, no se puede aumentar aún más.",

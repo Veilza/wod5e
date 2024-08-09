@@ -1,59 +1,52 @@
-<form class="{{cssClass}} flexcol {{#if locked}}locked{{/if}} hunter-sheet" autocomplete="off">
-    {{!-- Actor Type Banner --}}
-    {{#if displayBanner}}
-    <div class="sheet-banner">
-      <h1>{{localize "WOD5E.HTR.Label"}}</h1>
-    </div>
-    {{/if}}
-
+<form class="{{cssClass}} flexcol {{#if locked}}locked{{/if}}" autocomplete="off">
     {{!-- Hunter Sheet Header --}}
-    <header class="actor-header">
-        <div class="header-fields-top">
-            <div class="header-profile-img">
-                {{!-- Actor image and sheet lock toggle button --}}
-                {{> "systems/vtm5e/display/shared/actors/parts/profile-img.hbs"}}
+    <header class="actor-header" {{#if actor.system.settings.headerbg}}style="background: url({{actor.system.settings.headerbg}}) center;"{{/if}}>
+        <div class="header-fields">
+            <div class="header-fields-left">
+                {{!-- Health Tracker --}}
+                {{> "systems/vtm5e/display/shared/actors/parts/health.hbs"}}
+                {{!-- Willpower Tracker --}}
+                {{> "systems/vtm5e/display/shared/actors/parts/willpower.hbs"}}
             </div>
-            <div class="header-rows-top">
-                <div class="header-row-1">
-                    {{!-- Text input header fields --}}
-                    <h1 class="charname"><input class="no-border" name="name" type="text" value="{{actor.name}}"
-                    placeholder="{{localize 'WOD5E.Name'}}" /></h1>
-
-                    <h1 class="charname"><input class="no-border" name="system.headers.cellname" type="text" value="{{actor.system.headers.cellname}}"
-                    placeholder="{{localize 'WOD5E.HTR.Cell'}}" /></h1>
-
-                    <h1 class="charname"><input class="no-border" name="system.headers.creed" type="text" value="{{actor.system.headers.creed}}"
-                        placeholder="{{localize 'WOD5E.HTR.Creed'}}" /></h1>
-
-                    <h1 class="charname"><input class="no-border" name="system.headers.drive" type="text" value="{{actor.system.headers.drive}}"
-                        placeholder="{{localize 'WOD5E.HTR.Drive'}}" /></h1>
-                </div>
-                <div class="header-row-2">
-                    {{!-- Health Tracker --}}
-                    {{> "systems/vtm5e/display/shared/actors/parts/health.hbs"}}
-
-                    {{!-- Willpower Tracker --}}
-                    {{> "systems/vtm5e/display/shared/actors/parts/willpower.hbs"}}
-
-                    {{!-- XP Tracker --}}
-                    {{> "systems/vtm5e/display/shared/actors/parts/exp.hbs"}}
-
-                    {{> "systems/vtm5e/display/htr/actors/parts/despair.hbs"}}
+        </div>
+        <!-- Middle of the header -->
+        {{> "systems/vtm5e/display/shared/actors/parts/header-profile.hbs"}}
+        <div class="header-fields">
+            <div class="header-fields-right">
+                <div class="flexcol">
+                    <div class="field-section">
+                        <div class="flexrow nowrap">
+                            <div class="flexcol">
+                                <label class="resource-label field-header">{{localize 'WOD5E.HTR.Creed'}}</label>
+                                <input name="system.headers.creed" type="text" value="{{actor.system.headers.creed}}" placeholder="{{localize 'WOD5E.HTR.Creed'}}"/>
+                            </div>
+                            <div class="flexcol">
+                                <label class="resource-label field-header">{{localize 'WOD5E.HTR.Drive'}}</label>
+                                <input name="system.headers.drive" type="text" value="{{actor.system.headers.drive}}" placeholder="{{localize 'WOD5E.HTR.Drive'}}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field-section">
+                        <div class="flexrow nowrap">
+                            <div class="flexcol">
+                                <label class="resource-label field-header">{{localize 'WOD5E.HTR.Cell'}}</label>
+                                <input name="system.headers.cellname" type="text" value="{{actor.system.headers.cellname}}" placeholder="{{localize 'WOD5E.HTR.Cell'}}"/>
+                            </div>
+                            <div class="flexcol">
+                                <label class="resource-label field-header">{{localize 'WOD5E.HTR.Despair'}}</label>
+                                {{> "systems/vtm5e/display/htr/actors/parts/despair.hbs"}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    {{!-- Hunter Sheet Tab Navigation --}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-        <div class="item" data-tab="stats">{{localize "WOD5E.Tabs.Stats"}}</div>
-        <div class="item" data-tab="edges">{{localize "WOD5E.HTR.Edges"}}</div>
-        <div class="item" data-tab="features">{{localize "WOD5E.Tabs.Features"}}</div>
-        <div class="item" data-tab="description">{{localize "WOD5E.Tabs.Description"}}</div>
-        <div class="item" data-tab="other">{{localize "WOD5E.Tabs.Other"}}</div>
-    </nav>
+    {{!-- Tab Navigation --}}
+    {{> "systems/vtm5e/display/shared/actors/parts/navbar.hbs"}}
 
-    {{!-- Hunter Sheet Body --}}
+    {{!-- Sheet Body --}}
     <section class="sheet-body">
         {{!-- Stats Tab --}}
         {{> "systems/vtm5e/display/shared/actors/parts/stats.hbs"}}
@@ -69,5 +62,15 @@
 
         {{!-- Other Tab --}}
         {{> "systems/vtm5e/display/shared/actors/parts/other.hbs"}}
+
+        {{!-- Settings Tab --}}
+        {{> "systems/vtm5e/display/shared/actors/parts/actor-settings.hbs"}}
     </section>
+
+    {{!-- Actor Type Banner --}}
+    {{#if displayBanner}}
+    <div class="sheet-banner">
+      {{localize "WOD5E.HTR.Label"}}
+    </div>
+    {{/if}}
 </form>

@@ -1,0 +1,156 @@
+.resource-value {
+  align-self: flex-end;
+}
+
+.resource-value .resource-value-step {
+  height: 14px;
+  width: 14px;
+  border: 1px solid #000;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #00000047;
+}
+
+.resource-value-static .resource-value-static-step {
+  height: 14px;
+  width: 14px;
+  border: 1px solid #000;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.resource-value .resource-value-empty {
+  height: 14px;
+  width: 14px;
+  border: 1px solid #000;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    transparent 43%,
+    black 45%,
+    black 55%,
+    transparent 57%,
+    transparent 100%
+  ),
+  linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 43%,
+    black 45%,
+    black 55%,
+    transparent 57%,
+    transparent 100%
+  );
+}
+
+.resource-counter .resource-counter-step {
+  height: 14px;
+  width: 14px;
+  border: 1px solid #000;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.resource-counter .resource-counter-step[data-state="/"] {
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 43%,
+    black 45%,
+    black 55%,
+    transparent 57%,
+    transparent 100%
+  );
+}
+
+.resource-counter .resource-counter-step[data-state="x"] {
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    transparent 43%,
+    black 45%,
+    black 55%,
+    transparent 57%,
+    transparent 100%
+  ),
+  linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 43%,
+    black 45%,
+    black 55%,
+    transparent 57%,
+    transparent 100%
+  );
+}
+
+.flex-group-center:not(.flexrow) .resource-value,
+.flex-group-center:not(.flexrow) .resource-counter {
+  margin-top: 5px;
+}
+
+.cell-resource-counter .cell-resource-counter-step {
+  height: 14px;
+  width: 14px;
+  border: 1px solid #000;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.cell-resource-counter .cell-resource-counter-step[data-state="/"] {
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 43%,
+    black 45%,
+    black 55%,
+    transparent 57%,
+    transparent 100%
+  );
+}
+
+.cell-resource-counter .cell-resource-counter-step[data-state="x"] {
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    transparent 43%,
+    black 45%,
+    black 55%,
+    transparent 57%,
+    transparent 100%
+  ),
+  linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 43%,
+    black 45%,
+    black 55%,
+    transparent 57%,
+    transparent 100%
+  );
+}
+
+.flex-group-center:not(.flexrow) .resource-value,
+.flex-group-center:not(.flexrow) .cell-resource-counter {
+  margin-top: 5px;
+}
+
+.tab.disciplines .resource-value,
+.tab.edges .resource-value {
+  margin-top: 2px;
+  text-align: center;
+}
+
+.tab.features .resource-value,
+.tab.features .resource-value-static {
+  margin-top: 2px;
+  text-align: center;
+}
+
+.actor.sheet .resource-value-empty {
+  margin-left: -16px;
+}

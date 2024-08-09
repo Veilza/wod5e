@@ -1,5 +1,5 @@
-<h1 class="spc-type-field">
-  <select class="no-border spc-type-selector" name="system.spcType" data-type="String"{{#if actor.limited}} disabled{{/if}}>
+<div class="actor-type-field">
+  <select class="spc-type-selector" name="system.spcType" data-type="String"{{#if actor.limited}} disabled{{/if}}>
     {{selectOptions spcTypes selected=actor.system.spcType localize=true}}
   </select>
-</h1>
+</div>

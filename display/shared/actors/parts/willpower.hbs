@@ -1,17 +1,23 @@
-<div class="resource flex-group-center willpower">
-    <div class="flexrow">
-        <i class="fas fa-minus resource-control resource-minus" data-resource="willpower" data-action="minus"></i>
-        <label for="actor.system.willpower" class="resource-label system-rollable willpower-roll"
-            title="{{localize 'WOD5E.Chat.RollWillpower'}}">{{localize "WOD5E.Willpower"}}</label>
-        <i class="fas fa-plus resource-control resource-plus" data-resource="willpower" data-action="plus"></i>
-    </div> 
-    <div class="resource-content flexrow flex-center flex-between">
-        <div class="resource-counter editable" data-states="/:superficial,x:aggravated" data-max="{{actor.system.willpower.max}}"
-            data-superficial="{{actor.system.willpower.superficial}}" data-aggravated="{{actor.system.willpower.aggravated}}"
-            data-name="system.willpower">
-            {{#numLoop actor.system.willpower.max}}
-                <span class="resource-counter-step" data-index="{{this}}" data-state=""></span>
-            {{/numLoop}}
+<div class="flexcol field-section">
+    <div class="flexcol">
+        <label class="field-header flexrow resource-label">
+            <i class="fas fa-minus resource-control resource-minus" data-resource="willpower" data-action="minus"></i>
+            <label for="actor.system.willpower" class="system-rollable willpower-roll" title="{{localize 'WOD5E.Chat.RollWillpower'}}">
+                {{localize "WOD5E.Willpower"}}
+                <i class="fa-solid fa-dice-d10"></i>
+            </label>
+            <i class="fas fa-plus resource-control resource-plus" data-resource="willpower" data-action="plus"></i>
+        </label>
+    </div>
+    <div class="resource flex-group-center willpower">
+        <div class="resource-content flexrow flex-center flex-between">
+            <div class="resource-counter editable" data-states="/:superficial,x:aggravated" data-max="{{actor.system.willpower.max}}"
+                data-superficial="{{actor.system.willpower.superficial}}" data-aggravated="{{actor.system.willpower.aggravated}}"
+                data-name="system.willpower">
+                {{#numLoop actor.system.willpower.max}}
+                    <span class="resource-counter-step" data-index="{{this}}" data-state=""></span>
+                {{/numLoop}}
+            </div>
         </div>
     </div>
 </div>

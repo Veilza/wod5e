@@ -1,0 +1,149 @@
+/* Variables */
+:root {
+  --ui-background-werewolf-texture: url("/systems/vtm5e/assets/ui/ui_background_werewolf_texture.webp");
+}
+
+.werewolf-theme {
+  /* Logo */
+  #logo {
+    content: url(/systems/vtm5e/assets/ui/WtA_Logo.png);
+  }
+
+  /* Sheet window Header */
+  .sheet .window-header {
+    background-color: var(--werewolf-primary);
+  }
+
+  /* Sheet Window Content */
+  .sheet .window-content {
+    background-color: #000000f0;
+    color: #FFF;
+    background-blend-mode: hard-light;
+  }
+
+  .sheet .window-content input {
+    color: #FFF;
+  }
+
+  /* Navbar */
+  .actor.sheet .sheet-tabs > [data-tab] .navicon {
+    background-color: black;
+    border: 1px solid #FFF;
+  }
+
+  .actor.sheet.hunter .tabs-container .active .navicon {
+    color: black;
+  }
+
+  .actor.sheet.hunter .tabs-container .active .navicon .wod5e-symbol {
+    color: black;
+  }
+
+  /* Resource Counters */
+  .resource-value .resource-value-step {
+    background-color: #bdbdbd91;
+  }
+
+  .resource-counter .resource-counter-step {
+    border: 1px solid #FFF;
+  }
+
+  .resource-counter .resource-counter-step[data-state="/"] {
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      transparent 43%,
+      white 45%,
+      white 55%,
+      transparent 57%,
+      transparent 100%
+    );
+  }
+
+  .resource-counter .resource-counter-step[data-state="x"] {
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      transparent 43%,
+      white 45%,
+      white 55%,
+      transparent 57%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      transparent 43%,
+      white 45%,
+      white 55%,
+      transparent 57%,
+      transparent 100%
+    );
+  }
+
+  .resource-value .resource-value-empty {
+    border: 1px solid #777777;
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      transparent 43%,
+      rgb(165, 165, 165) 45%,
+      rgb(165, 165, 165) 55%,
+      transparent 57%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      transparent 43%,
+      rgb(165, 165, 165) 45%,
+      rgb(165, 165, 165) 55%,
+      transparent 57%,
+      transparent 100%
+    );
+  }
+
+  /* Actor Sheet */
+  .actor.sheet .actor-header input,
+  .actor.sheet .actor-header .resource,
+  .actor.sheet .stats-container,
+  .actor.sheet .stats-container .stats-footer {
+    background-color: #1d1d1d;
+    border-color: #FFF;
+  }
+
+  /* Sidebar */
+  #sidebar {
+    background: url(/systems/vtm5e/assets/ui/sidebar_werewolf.webp) repeat;
+  }
+
+  /* Foundry Controls UI */
+  #controls ol.control-tools > li {
+    background: var(--ui-background-werewolf-texture);
+  }
+
+  #navigation #scene-list .scene,
+  #navigation #scene-list .scene.view,
+  #navigation #scene-list .scene.context,
+  #navigation #scene-list .scene.gm,
+  #navigation .nav-item,
+  #navigation #nav-toggle {
+    background: var(--ui-background-werewolf-texture);
+  }
+
+  #navigation #scene-list .scene.active {
+    background: var(--ui-background-active-texture);
+  }
+
+  #hotbar .macro {
+    background: rgb(87 52 13);
+  }
+
+  #hotbar .bar-controls {
+    background: var(--ui-background-werewolf-texture);
+  }
+
+  .app {
+    background: var(--ui-background-werewolf-texture);
+  }
+}

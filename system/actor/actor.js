@@ -33,7 +33,7 @@ export class ActorInfo extends Actor {
     if (!game.user.isGM) return
 
     // If the character is a player, update disposition to friendly
-    if (actor.hasPlayerOwner && actor.type !== 'group') {
+    if (actor?.hasPlayerOwner && actor.type !== 'group') {
       // Update things here
       actor.update({
         'prototypeToken.disposition': CONST.TOKEN_DISPOSITIONS.FRIENDLY,
